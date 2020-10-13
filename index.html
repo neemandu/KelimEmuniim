@@ -22,52 +22,68 @@
         }
     </style>
     <script>
+        
+        function createNode(element) {
+            return document.createElement(element);
+        }
+
+        function append(parent, el) {
+        return parent.appendChild(el);
+        }
+
         // define the callAPI function that takes a first name and last name as parameters
-        /*var callAPI = (firstName,lastName)=>{
+        var callAPI = (id)=>{
             // instantiate a headers object
             var myHeaders = new Headers();
             // add content type header to object
             myHeaders.append("Content-Type", "application/json");
             // using built in JSON utility package turn object to string and store in a variable
-            var raw = JSON.stringify({"firstName":firstName,"lastName":lastName});
-            // create a JSON object with parameters for API call and store in a variable
-            var requestOptions = {
-                method: 'POST',
-                headers: myHeaders,
-                body: raw,
-                redirect: 'follow'
-            };
-            // make API call with parameters and use promises to get response
-            fetch("https://t2o4oony9b.execute-api.eu-west-2.amazonaws.com/dev/", requestOptions)
-            .then(response => response.text())
-            .then(result => alert(JSON.parse(result).body))
-            .catch(error => console.log('error', error));
-        }*/
-
-        var callAPI = (firstName,lastName)=>{
-            // instantiate a headers object
-            var myHeaders = new Headers();
-            // add content type header to object
-            myHeaders.append("Content-Type", "application/json");
+            //var raw = JSON.stringify({"firstName":firstName,"lastName":lastName});
             // create a JSON object with parameters for API call and store in a variable
             var requestOptions = {
                 method: 'GET',
                 headers: myHeaders,
-                body: raw,
+                //body: raw,
                 redirect: 'follow'
             };
             // make API call with parameters and use promises to get response
-            fetch("https://t2o4oony9b.execute-api.eu-west-2.amazonaws.com/dev/", requestOptions)
+           /* fetch("https://seo4gndjt8.execute-api.eu-west-2.amazonaws.com/dev/cards?id=" + id, requestOptions)
             .then(response => response.text())
             .then(result => alert(JSON.parse(result).body))
             .catch(error => console.log('error', error));
+            */
+
+            fetch("https://seo4gndjt8.execute-api.eu-west-2.amazonaws.com/dev/cards?id=" + id, requestOptions)
+            .then((resp) => resp.json())
+            .then(function(data) {
+                let ul = document.getElementById('cards'); // Get the list where we will place our authors
+                let cards = JSON.parse(data.body).cards.L;
+                console.log(cards);
+                console.log(cards[0].M.imgUrl.S);
+                return cards.map(function(card) {
+                    let li = createNode('li'),
+                        img = createNode('img');
+                    img.src = card.M.imgUrl.S;
+                    append(li, img);
+                    append(ul, li);
+                })
+                })
+                .catch(function(error) {
+                console.log(error);
+                });
         }
     </script>
 </head>
 <body>
-    <form>
-        <!-- set button onClick method to call function we defined passing input values as parameters -->
-        <button type="button" onclick="callAPI(document.getElementById('fName').value,document.getElementById('lName').value)">Call API</button>
-    </form>
-</body>
+        <form>
+            <label>Cards Pack ID :</label>
+            <input type="text" id="id">
+            <!--<img src="https://master-cards.s3.eu-west-2.amazonaws.com/Cornhole.PNG" alt="card">-->
+            <!-- set button onClick method to call function we defined passing input values as parameters -->
+            <button type="button" onclick="callAPI(document.getElementById('id').value)">Call API</button>
+            <br />
+            <br />
+            <ul id="cards"></ul>
+        </form>
+    </body>
 </html>
