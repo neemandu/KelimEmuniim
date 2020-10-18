@@ -20,6 +20,14 @@
         font-size: 20px;
         margin-left: 20px;
         }
+    img {
+        border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+width: 10%;
+  height: auto;
+  margin: 10px 10px;
+        }
     </style>
     <script>
         
@@ -56,7 +64,7 @@
             fetch("https://seo4gndjt8.execute-api.eu-west-2.amazonaws.com/dev/cards?id=" + id, requestOptions)
             .then((resp) => resp.json())
             .then(function(data) {
-                let ul = document.getElementById('cards'); // Get the list where we will place our authors
+                let div = document.getElementById('cards'); // Get the list where we will place our authors
                 let cards = data.body.cards;
                 console.log(cards);
                 console.log(cards[0].imgUrl);
@@ -64,8 +72,9 @@
                     let li = createNode('li'),
                         img = createNode('img');
                     img.src = card.imgUrl;
-                    append(li, img);
-                    append(ul, li);
+                    //append(li, img);
+                    //append(ul, li);
+                    append(div, img);
                 })
                 })
                 .catch(function(error) {
@@ -83,7 +92,7 @@
             <button type="button" onclick="callAPI(document.getElementById('id').value)">Call API</button>
             <br />
             <br />
-            <ul id="cards"></ul>
+            <div id="cards"></div>
         </form>
     </body>
 </html>
