@@ -1,0 +1,26 @@
+app-pack {
+  margin: 10px 10px;
+}
+
+#filters {
+  max-width: 15%;
+  min-width: 10%;
+  word-break: break-all;
+  margin-left: 10px;
+}
+
+#filter-by-text {
+  text-align: right;
+  margin: 0px 10px 0px 0px;
+}
+
+#filter-by-options-title {
+  text-align: right;
+  margin: 5px 10px 0px 0px;
+  font-weight: 700;
+}
+
+:host ::ng-deep .mat-list-item-content {
+  /* padding-right: 10px; */
+  text-align: right;
+}

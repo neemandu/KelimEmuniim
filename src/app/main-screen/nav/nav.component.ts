@@ -1,7 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { Pack } from 'src/app/Objects/pack';
-import { CardsService } from 'src/app/Services/cards.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-nav',
@@ -10,24 +7,10 @@ import { CardsService } from 'src/app/Services/cards.service';
 })
 export class NavComponent implements OnInit {
 
-  @Output() packIdEmitted = new EventEmitter<number>();
-  packIdForm: any;
-
-  constructor(private formBuilder: FormBuilder) {
-    this.packIdForm = this.formBuilder.group({
-      packId: ['', [Validators.required, Validators.min(0)]]
-    })
-   }
+  constructor() {
+  }
 
   ngOnInit() {
-  }
-  
-  getPackById(): void {
-    this.packIdEmitted.emit(this.packIdForm.value.packId);
-  }
-
-  getAllPacks(): void {
-
   }
 
 }

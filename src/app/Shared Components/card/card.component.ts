@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Card } from 'src/app/Objects/card';
 
 @Component({
   selector: 'app-card',
@@ -7,26 +8,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  @Input() card: Card;
-
+  @Input() cardContent: Card;
+  @Input() selected: boolean = false;
+  @Output() cardSelectedEmmiter: EventEmitter<any> = new EventEmitter();
+    
   constructor() { }
-
-  ngOnInit() {
-  }
-
-}
-
-export class Card {
-  imgUrl: string;
-
-// constructor($imgUrl: string) {
-// 	this.imgUrl = $imgUrl;
-  // }
   
-  constructor(){}
-
-  deseralize(input: any){
-      Object.assign(this, input);
-      return this;
+  ngOnInit() {
+    // console.log("CardComponent -> card", this.cardContent)
   }
 }
+

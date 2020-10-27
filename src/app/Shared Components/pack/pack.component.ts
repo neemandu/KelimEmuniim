@@ -1,49 +1,34 @@
-import { Component, OnInit } from '@angular/core';
-import { Card } from '../card/card.component';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { PackInfo } from 'src/app/Objects/packs';
+import { CardsService } from 'src/app/Services/cards.service';
 
 @Component({
   selector: 'app-pack',
   templateUrl: './pack.component.html',
   styleUrls: ['./pack.component.css']
 })
-export class PackComponent implements OnInit {
+export class PackComponent implements OnInit, OnDestroy {
 
-  cards: Card[];
-  categories: string[];
-  description: string;
-  id: number;
-  imgUrl: string;
-  tags: string[];
+  Subscription: Subscription = new Subscription();
 
-  constructor() { }
+  @Input() packInfo: PackInfo;
+  fav: boolean = false;
+
+  constructor(private cardsService: CardsService) { }
 
   ngOnInit() {
+    this.Subscription.add(this.cardsService.favoriteChangeEmmiter.subscribe((favorites: number[]) => {
+      this.fav = favorites.includes(this.packInfo.id)
+    }));
+    this.fav = this.cardsService.isFavorite(this.packInfo.id)
   }
 
-}
+  addRemoveFavorite(): void {
+    this.fav = this.cardsService.addRemoveFavorite(this.packInfo.id)
+  }
 
-export class Pack {
-  cards: Card[];
-  categories: string[];
-  description: string;
-  id: number;
-  imgUrl: string;
-  tags: string[];
-
-  // constructor($cards: Card[], $categories: string[], $description: string, $id: number, $imgUrl: string, $tags: string[]) {
-  // 	this.cards = $cards;
-  // 	this.categories = $categories;
-  // 	this.description = $description;
-  // 	this.id = $id;
-  // 	this.imgUrl = $imgUrl;
-  // 	this.tags = $tags;
-  // }
-
-  constructor() { }
-
-  deseralize(input: any) {
-    Object.assign(this, input);
-    this.cards = input.cards.map(card => new Card().deseralize(card))
-    return this;
+  ngOnDestroy(): void {
+    this.Subscription.unsubscribe();
   }
 }

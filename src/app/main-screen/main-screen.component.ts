@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Pack } from '../Objects/pack';
 import { CardsService } from '../Services/cards.service';
 
 @Component({
@@ -9,17 +8,8 @@ import { CardsService } from '../Services/cards.service';
 })
 export class MainScreenComponent implements OnInit {
 
-  constructor(private service: CardsService) { }
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  getPackById(id: number): void {
-    this.service.getPackById(id).subscribe(res => {
-      var pack = new Pack().deseralize(res.body);
-      console.log("MainScreenComponent -> getPackById -> pack", pack)
-    }, error => {
-      console.log(error);
-    });
   }
 }

@@ -1,0 +1,3 @@
+<div *ngIf="pack" class="d-flex flex-row flex-wrap">
+  <app-card *ngFor="let card of pack.cards" [cardContent]="card" [selected]="selectedCards.includes(card)" (click)="cardSelected(card)"></app-card>
+</div>
