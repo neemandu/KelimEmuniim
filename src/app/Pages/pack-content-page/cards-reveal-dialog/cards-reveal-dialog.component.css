@@ -1,0 +1,8 @@
+* {
+    direction: rtl;
+}
+
+.card {
+    margin: 10px 10px;
+    max-height: 90vh;
+}

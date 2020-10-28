@@ -1,3 +1,4 @@
-<div>
-  <img [ngClass]="{'img-unselected': !selected, 'img-selected': selected}" src={{cardContent.imgUrl}}>
+<div class="d-flex flex-column">
+  <img (load)="imgLoaded()" [ngClass]="{'img-unselected': !selected, 'img-selected': selected}" src={{cardContent.imgUrl}}>
+  <span *ngIf="index" class="badge badge-pill badge-light">{{index}}</span>
 </div>

@@ -1,6 +1,16 @@
 <div id="filters" class="float-right d-flex flex-column">
   <h3 id="filter-by-text">סינון לפי:</h3>
   <mat-divider></mat-divider>
+  <h3 id="filter-by-options-title">טקסט חופשי</h3>
+  <mat-form-field>
+    <mat-label>סינון חופשי</mat-label>
+    <input #filterText matInput type="text" autocomplete="off">
+    <button mat-button [ngStyle]="{'visibility': filterText.value ? 'visible' : 'hidden'}" matSuffix mat-icon-button aria-label="Clear"
+      (click)="filterText.value=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-divider></mat-divider>
   <h3 id="filter-by-options-title">קטגוריות</h3>
   <mat-selection-list #categories>
     <mat-list-option disableRipple style="direction: ltr;" *ngFor="let category of allCategories">
@@ -23,5 +33,5 @@
   </mat-selection-list> -->
 </div>
 <div class="d-flex flex-row flex-wrap">
-  <app-pack *ngFor="let packInfo of allPacks" [packInfo]="packInfo"></app-pack>
+  <app-pack [ngStyle]="{'visibility': loadedPacks == allPacks.length ? 'visible' : 'hidden'}" *ngFor="let packInfo of allPacks" [packInfo]="packInfo" (loaded)="packLoaded()"></app-pack>
 </div>

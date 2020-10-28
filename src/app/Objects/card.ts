@@ -1,5 +1,6 @@
 export class Card {
     imgUrl: string;
+    index: number;
 
 	// constructor($imgUrl: string) {
 	// 	this.imgUrl = $imgUrl;

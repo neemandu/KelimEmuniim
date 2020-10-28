@@ -1,3 +1,17 @@
 <div *ngIf="pack" class="d-flex flex-row flex-wrap">
-  <app-card *ngFor="let card of pack.cards" [cardContent]="card" [selected]="selectedCards.includes(card)" (click)="cardSelected(card)"></app-card>
+  <app-card [ngStyle]="{'visibility': loadedCards == pack.cards.length ? 'visible' : 'hidden'}"
+    *ngFor="let card of pack.cards; let i = index" [cardContent]="card" [selected]="selectedCards.includes(card)"
+    [index]="i+1" (click)="cardSelected(card, i+1)" (loaded)="cardLoaded()">
+  </app-card>
 </div>
+
+<nav id="bottom-nav" class="nav navbar-light bg-light d-flex justify-content-between">
+  <div id="nav-buttons">
+    <button type="button" class="btn btn-light" (click)="shuffle()">ערבב</button>
+    <button type="button" class="btn btn-light">הפוך חפיסה</button>
+    <button type="button" class="btn btn-light" [disabled]="selectedCards.length == 0"
+      (click)="openChosenCardsModal()">הצג קלפים שנבחרו</button>
+    <button type="button" class="btn btn-light" (click)="selectedCards = []"
+      [disabled]="selectedCards.length == 0">איפוס בחירה</button>
+  </div>
+</nav>

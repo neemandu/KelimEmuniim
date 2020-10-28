@@ -24,3 +24,9 @@ app-pack {
   /* padding-right: 10px; */
   text-align: right;
 }
+
+mat-form-field {
+  text-align: right;
+  margin-right: 10px;
+  margin-left: 10px;
+}

@@ -10,12 +10,18 @@ export class CardComponent implements OnInit {
 
   @Input() cardContent: Card;
   @Input() selected: boolean = false;
+  @Input() index: number;
   @Output() cardSelectedEmmiter: EventEmitter<any> = new EventEmitter();
-    
+  @Output() loaded: EventEmitter<any> = new EventEmitter<any>();
+  
   constructor() { }
   
   ngOnInit() {
     // console.log("CardComponent -> card", this.cardContent)
+  }
+
+  imgLoaded(): any {
+    this.loaded.emit();
   }
 }
 

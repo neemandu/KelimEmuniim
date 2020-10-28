@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { PackInfo } from 'src/app/Objects/packs';
 import { CardsService } from 'src/app/Services/cards.service';
+import { OverlaySpinnerService } from 'src/app/Services/overlay-spinner.service';
 
 @Component({
   selector: 'app-home-page',
@@ -15,10 +16,15 @@ export class HomePageComponent implements OnInit, OnDestroy {
   allPacks: PackInfo[] = [];
   allCategories: string[] = [];
   allFavorites: number[] = [];
+  loadedPacks: number;
 
-  constructor(private cardsService: CardsService) { }
+  constructor(private cardsService: CardsService, private overlaySpinnerService: OverlaySpinnerService) { 
+    this.overlaySpinnerService.changeOverlaySpinner(true);
+  }
 
   ngOnInit(): void {
+    // this.overlaySpinnerService.changeOverlaySpinner(true);
+    this.loadedPacks = 0;
     this.Subscription.add(this.cardsService.favoriteChangeEmmiter.subscribe((favorites: number[]) => {
       this.allFavorites = favorites
     }));
@@ -50,9 +56,14 @@ export class HomePageComponent implements OnInit, OnDestroy {
     }
   }
 
+  packLoaded(): void {
+    this.loadedPacks ++;
+    if(this.loadedPacks == this.allPacks.length){
+      this.overlaySpinnerService.changeOverlaySpinner(false);
+    }
+  }
+
   getAllFavoritesDesc(): string[] {
-    // var existing = this.allPacks.filter(pack => this.allFavorites.includes(pack.id));
-    // return existing.map(pack=> pack.description);
     return (this.allPacks.filter(pack => this.allFavorites.includes(pack.id))).map(pack => pack.description);
   }
 
