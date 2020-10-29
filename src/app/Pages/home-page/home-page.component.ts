@@ -44,7 +44,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
           });
           return new PackInfo().deseralize(body)
         });
-        console.log("HomePageComponent -> ngOnInit -> this.allPacks", this.allPacks)
+        // console.log("HomePageComponent -> ngOnInit -> this.allPacks", this.allPacks)
         this.cardsService.allPacks = this.allPacks.map(pack => pack);
         this.cardsService.allCategories = this.allCategories.map(category => category);
         this.allFavorites = this.cardsService.favorites;
@@ -86,7 +86,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
     if (this.selectedFavorites.length != 0) {
       this.favoritesFilter()
     }
-    console.log("HomePageComponent -> filterPacks -> this.allPacks", this.allPacks)
+    // console.log("HomePageComponent -> filterPacks -> this.allPacks", this.allPacks)
   }
 
   freeTextFilter(): void {
