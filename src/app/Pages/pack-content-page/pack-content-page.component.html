@@ -6,14 +6,14 @@
   </app-card>
 </div>
 
-<nav id="bottom-nav" class="nav navbar-light bg-light d-flex justify-content-between" [ngStyle]="{'position': loadedCards == pack.cards.length ? 'sticky' : 'fixed' }">
+<nav id="bottom-nav" *ngIf="loadedCards == pack.cards.length" class="nav navbar-light bg-light d-flex justify-content-between">
   <div id="nav-buttons">
-    <button type="button" class="btn btn-light" (click)="shuffle()">ערבב</button>
-    <button type="button" class="btn btn-light">הפוך חפיסה</button>
-    <button type="button" class="btn btn-light" [disabled]="selectedCards.length == 0"
+    <button type="button" class="option-btn" (click)="shuffle()">ערבב</button>
+    <!-- <button type="button" class="option-btn">הפוך חפיסה</button> -->
+    <button type="button" class="option-btn" [disabled]="selectedCards.length == 0"
       (click)="openChosenCardsModal()">הצג קלפים שנבחרו</button>
-    <button type="button" class="btn btn-light" (click)="selectedCards = []"
+    <button type="button" class="option-btn" (click)="selectedCards = []"
       [disabled]="selectedCards.length == 0">איפוס בחירה</button>
-    <button type="button" class="btn btn-light" (click)="openRandomCardsModal()">הצג קלף אקראי</button>
+    <button type="button" class="option-btn" (click)="openRandomCardsModal()">הצג קלף אקראי</button>
   </div>
 </nav>

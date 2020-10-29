@@ -11,6 +11,7 @@ export class RandomCardRevealDialogComponent implements OnInit {
 
   selectedCard: Card;
   index: number = 0;
+  cardLoaded: boolean = false;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
 
@@ -19,13 +20,17 @@ export class RandomCardRevealDialogComponent implements OnInit {
   }
 
   nextCard(): void {
-    if (this.index < this.data.length)
+    if (this.index < this.data.length){
       this.selectedCard = this.data[++this.index];
+      this.cardLoaded = false;
+    }
   }
 
   prevCard(): void {
-    if (this.index > 0)
+    if (this.index > 0){
       this.selectedCard = this.data[--this.index];
+      this.cardLoaded = false;
+    }
   }
 
 }

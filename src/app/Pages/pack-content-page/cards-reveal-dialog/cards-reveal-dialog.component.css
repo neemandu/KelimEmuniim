@@ -5,12 +5,12 @@
 .card-pre-reveal {
   margin: 10px 10px;
   max-height: 85vh;
-  visibility: hidden;
+  /* visibility: hidden; */
   opacity: 0;
-  transition: visibility 0.5s linear, opacity 0.5s linear;
+  transition: opacity 0.5s linear;
 }
 
 .card-reveal {
-  visibility: visible;
+  /* visibility: visible; */
   opacity: 1;
 }

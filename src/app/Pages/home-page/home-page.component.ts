@@ -109,7 +109,6 @@ export class HomePageComponent implements OnInit, OnDestroy {
     this.allPacks = this.allPacks.filter((pack: PackInfo) => {
       pack.categories.forEach(category => {
         if (this.selectedCategories.includes(category)) {
-          console.log('return true');
           return true;
         }
       })
