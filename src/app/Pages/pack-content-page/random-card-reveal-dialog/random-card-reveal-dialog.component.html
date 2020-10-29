@@ -1,0 +1,14 @@
+<div class="d-flex">
+  <button type="button" class="btn btn-light" [disabled]="index == data.length" (click)="nextCard()">
+    <mat-icon class="btn-icon">chevron_right
+    </mat-icon>
+  </button>
+
+  <app-card class="card" [cardContent]="selectedCard">
+  </app-card>
+
+  <button type="button" class="btn btn-light" [disabled]="index == 0" (click)="prevCard()">
+    <mat-icon class="btn-icon">chevron_left</mat-icon>
+  </button>
+
+</div>

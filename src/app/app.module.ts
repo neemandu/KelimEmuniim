@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TooltipListViewPipe } from './Shared Components/Pipes/tooltip-list-view.pipe';
 import { CardsRevealDialogComponent } from './Pages/pack-content-page/cards-reveal-dialog/cards-reveal-dialog.component';
+import { RandomCardRevealDialogComponent } from './Pages/pack-content-page/random-card-reveal-dialog/random-card-reveal-dialog.component';
 
 //Material
 import { MatButtonModule } from '@angular/material/button';
@@ -49,7 +50,8 @@ import { OverlaySpinnerComponent } from './main-screen/overlay-spinner/overlay-s
     PackContentPageComponent,
     TooltipListViewPipe,
     CardsRevealDialogComponent,
-    OverlaySpinnerComponent
+    OverlaySpinnerComponent,
+    RandomCardRevealDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +75,7 @@ import { OverlaySpinnerComponent } from './main-screen/overlay-spinner/overlay-s
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [CardsRevealDialogComponent]
+  entryComponents: [CardsRevealDialogComponent, RandomCardRevealDialogComponent]
 
 })
 export class AppModule { }

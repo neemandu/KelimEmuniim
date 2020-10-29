@@ -30,3 +30,14 @@ mat-form-field {
   margin-right: 10px;
   margin-left: 10px;
 }
+
+.pack {
+  /* visibility: hidden; */
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
+.pack-reveal {
+  /* visibility: visible; */
+  opacity: 1;
+}

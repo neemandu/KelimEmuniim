@@ -8,9 +8,13 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class CardsRevealDialogComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
+  loadedCards: number = 0;
 
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { 
+  }
+  
   ngOnInit(): void {
+    console.log("CardsRevealDialogComponent -> constructor -> data", this.data)
   }
 
 }

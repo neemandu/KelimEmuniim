@@ -13,6 +13,19 @@ app-card {
 }
 
 #bottom-nav {
-    position: sticky;
-    bottom: 0px;
+  bottom: 0;
+  width: 100%;
+  margin-top: 15px;
 }
+
+.card-pre-reveal {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.7s linear, opacity 0.7s linear;
+}
+
+.card-reveal {
+  visibility: visible;
+  opacity: 1;
+}
+

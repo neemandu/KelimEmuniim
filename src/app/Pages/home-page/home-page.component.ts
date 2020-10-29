@@ -14,16 +14,22 @@ export class HomePageComponent implements OnInit, OnDestroy {
   Subscription: Subscription = new Subscription();
 
   allPacks: PackInfo[] = [];
+  allPacksToShow: PackInfo[] = [];
   allCategories: string[] = [];
   allFavorites: number[] = [];
   loadedPacks: number;
 
-  constructor(private cardsService: CardsService, private overlaySpinnerService: OverlaySpinnerService) { 
+  //Filters
+  freeTextFilterSelected: string = '';
+  selectedCategories: string[] = [];
+  selectedFavorites: string[] = [];
+  // selectedTags: string[] = [];
+
+  constructor(private cardsService: CardsService, private overlaySpinnerService: OverlaySpinnerService) {
     this.overlaySpinnerService.changeOverlaySpinner(true);
   }
 
   ngOnInit(): void {
-    // this.overlaySpinnerService.changeOverlaySpinner(true);
     this.loadedPacks = 0;
     this.Subscription.add(this.cardsService.favoriteChangeEmmiter.subscribe((favorites: number[]) => {
       this.allFavorites = favorites
@@ -38,6 +44,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
           });
           return new PackInfo().deseralize(body)
         });
+        console.log("HomePageComponent -> ngOnInit -> this.allPacks", this.allPacks)
         this.cardsService.allPacks = this.allPacks.map(pack => pack);
         this.cardsService.allCategories = this.allCategories.map(category => category);
         this.allFavorites = this.cardsService.favorites;
@@ -57,14 +64,63 @@ export class HomePageComponent implements OnInit, OnDestroy {
   }
 
   packLoaded(): void {
-    this.loadedPacks ++;
-    if(this.loadedPacks == this.allPacks.length){
+    this.loadedPacks++;
+    if (this.loadedPacks == this.allPacks.length) {
       this.overlaySpinnerService.changeOverlaySpinner(false);
     }
   }
 
   getAllFavoritesDesc(): string[] {
-    return (this.allPacks.filter(pack => this.allFavorites.includes(pack.id))).map(pack => pack.description);
+    return this.cardsService.allPacks ? (this.cardsService.allPacks.filter(pack => this.allFavorites.includes(pack.id))).map(pack => pack.description) : (this.allPacks.filter(pack => this.allFavorites.includes(pack.id))).map(pack => pack.description);
+  }
+
+  filterPacks(): void {
+    this.loadedPacks = 0;
+    this.allPacks = this.cardsService.allPacks.map(pack => pack);
+    if (this.freeTextFilterSelected !== '') {
+      this.freeTextFilter();
+    }
+    if (this.selectedCategories.length != 0) {
+      this.categoryFilter();
+    }
+    if (this.selectedFavorites.length != 0) {
+      this.favoritesFilter()
+    }
+    console.log("HomePageComponent -> filterPacks -> this.allPacks", this.allPacks)
+  }
+
+  freeTextFilter(): void {
+    this.allPacks = this.allPacks.filter((pack: PackInfo) => {
+      if (pack.description.includes(this.freeTextFilterSelected))
+        return true;
+      pack.categories.forEach(category => {
+        if (category.includes(this.freeTextFilterSelected))
+          return true;
+      })
+      pack.tags.forEach(tag => {
+        if (tag.includes(this.freeTextFilterSelected))
+          return true;
+      })
+      return false;
+    })
+  }
+
+  categoryFilter(): void {//TODO - won't filter categories
+    this.allPacks = this.allPacks.filter((pack: PackInfo) => {
+      pack.categories.forEach(category => {
+        if (this.selectedCategories.includes(category)) {
+          console.log('return true');
+          return true;
+        }
+      })
+      return false;
+    })
+  }
+
+  favoritesFilter(): void {
+    this.allPacks = this.allPacks.filter((pack: PackInfo) => {
+      return this.selectedFavorites.includes(pack.description);
+    })
   }
 
   ngOnDestroy(): void {

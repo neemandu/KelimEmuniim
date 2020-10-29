@@ -1,11 +1,12 @@
 <div *ngIf="pack" class="d-flex flex-row flex-wrap">
-  <app-card [ngStyle]="{'visibility': loadedCards == pack.cards.length ? 'visible' : 'hidden'}"
+  <!-- <app-card [ngStyle]="{'visibility': loadedCards == pack.cards.length ? 'visible' : 'hidden'}" -->
+  <app-card [ngClass]="{'card-pre-reveal': true, 'card-reveal': loadedCards == pack.cards.length}"
     *ngFor="let card of pack.cards; let i = index" [cardContent]="card" [selected]="selectedCards.includes(card)"
     [index]="i+1" (click)="cardSelected(card, i+1)" (loaded)="cardLoaded()">
   </app-card>
 </div>
 
-<nav id="bottom-nav" class="nav navbar-light bg-light d-flex justify-content-between">
+<nav id="bottom-nav" class="nav navbar-light bg-light d-flex justify-content-between" [ngStyle]="{'position': loadedCards == pack.cards.length ? 'sticky' : 'fixed' }">
   <div id="nav-buttons">
     <button type="button" class="btn btn-light" (click)="shuffle()">ערבב</button>
     <button type="button" class="btn btn-light">הפוך חפיסה</button>
@@ -13,5 +14,6 @@
       (click)="openChosenCardsModal()">הצג קלפים שנבחרו</button>
     <button type="button" class="btn btn-light" (click)="selectedCards = []"
       [disabled]="selectedCards.length == 0">איפוס בחירה</button>
+    <button type="button" class="btn btn-light" (click)="openRandomCardsModal()">הצג קלף אקראי</button>
   </div>
 </nav>

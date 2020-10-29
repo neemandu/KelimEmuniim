@@ -6,6 +6,7 @@ import { CardsService } from 'src/app/Services/cards.service';
 import { OverlaySpinnerService } from 'src/app/Services/overlay-spinner.service';
 import { CardComponent } from 'src/app/Shared Components/card/card.component';
 import { CardsRevealDialogComponent } from './cards-reveal-dialog/cards-reveal-dialog.component';
+import { RandomCardRevealDialogComponent } from './random-card-reveal-dialog/random-card-reveal-dialog.component';
 
 @Component({
   selector: 'app-pack-content-page',
@@ -62,10 +63,22 @@ export class PackContentPageComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    // dialogConfig.maxWidth = '28vw';
-    dialogConfig.maxHeight = '80vh';
+    dialogConfig.maxHeight = '85vh';
     dialogConfig.data = this.selectedCards;
     const dialogRef = this.dialog.open(CardsRevealDialogComponent, dialogConfig);
+    var dialogSub = dialogRef.afterClosed().subscribe(() => {
+      dialogSub.unsubscribe();
+    });
+  }
+
+  openRandomCardsModal(): void {
+    this.shuffle();
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.maxHeight = '85vh';
+    dialogConfig.data = this.pack.cards;
+    const dialogRef = this.dialog.open(RandomCardRevealDialogComponent, dialogConfig);
     var dialogSub = dialogRef.afterClosed().subscribe(() => {
       dialogSub.unsubscribe();
     });
