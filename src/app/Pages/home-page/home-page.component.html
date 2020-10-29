@@ -1,3 +1,4 @@
+<h1 style="text-align: center">החפיסות שלנו</h1>
 <div id="filters" class="float-right d-flex flex-column">
   <h3 id="filter-by-text">סינון לפי:</h3>
   <mat-divider></mat-divider>
@@ -19,7 +20,7 @@
     </mat-list-option>
   </mat-selection-list>
   <mat-divider></mat-divider>
-  <h3 id="filter-by-options-title">מועדפים שלי</h3>
+ <h3 id="filter-by-options-title">המועדפים שלי</h3>
   <mat-selection-list #favorites (selectionChange)="filterPacks()" [(ngModel)]="selectedFavorites">
     <mat-list-option disableRipple style="direction: ltr;" *ngFor="let fav of getAllFavoritesDesc()" [value]="fav">
       {{fav}}
@@ -36,5 +37,5 @@
 <div class="d-flex flex-row flex-wrap">
   <!-- <app-pack [ngClass]="{'pack': true, 'pack-reveal': loadedPacks == allPacks.length}" *ngFor="let packInfo of allPacks"
     [packInfo]="packInfo" (loaded)="packLoaded()"></app-pack> -->
-  <app-pack *ngFor="let packInfo of allPacks" [packInfo]="packInfo" (loaded)="packLoaded()"></app-pack>
+  <app-pack *ngFor="let packInfo of allPacks" [packInfo]="packInfo" class="zoom" (loaded)="packLoaded()"></app-pack>
 </div>
