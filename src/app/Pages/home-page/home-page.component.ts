@@ -107,12 +107,13 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   categoryFilter(): void {//TODO - won't filter categories
     this.allPacks = this.allPacks.filter((pack: PackInfo) => {
+      let res = false;
       pack.categories.forEach(category => {
         if (this.selectedCategories.includes(category)) {
-          return true;
+          res = true;
         }
       })
-      return false;
+      return res;
     })
   }
 
