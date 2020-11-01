@@ -1,4 +1,15 @@
 <div class="d-flex flex-column">
-  <img (load)="imgLoaded()" [ngClass]="{'img-unselected': !selected, 'img-selected': selected}" src={{cardContent.imgUrl}}>
+  <div >
+    <div [ngClass]="{'flip-box-inner': true, 'flip': flipped}">
+      <div class="flip-box-front">
+        <img src="/assets/Mentor Cards Back.png" [ngClass]="{'img-unselected': !selected, 'img-selected': selected}">
+      </div>
+      <div class="flip-box-back">
+        <img (load)="imgLoaded()" [ngClass]="{'img-unselected': !selected, 'img-selected': selected}"
+          src={{cardContent.imgUrl}}>
+      </div>
+    </div>
+  </div>
+  <!-- <img (load)="imgLoaded()" [ngClass]="{'img-unselected': !selected, 'img-selected': selected}" src={{cardContent.imgUrl}}> -->
   <span *ngIf="index" class="badge badge-pill badge-light">{{index}}</span>
 </div>

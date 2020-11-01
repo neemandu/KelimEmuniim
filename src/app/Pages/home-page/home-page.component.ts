@@ -105,7 +105,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
     })
   }
 
-  categoryFilter(): void {//TODO - won't filter categories
+  categoryFilter(): void {
     this.allPacks = this.allPacks.filter((pack: PackInfo) => {
       let res = false;
       pack.categories.forEach(category => {

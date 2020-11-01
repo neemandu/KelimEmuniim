@@ -1,6 +1,6 @@
 <div class="d-flex flex-row">
   <!-- <app-card [ngClass]="{'card': true, 'card-reveal': loadedCards == data.length}" [ngStyle]="{'visibility': loadedCards == data.length ? 'visible' : 'hidden'}" class="card" -->
   <app-card [ngClass]="{'card-pre-reveal': true, 'card-reveal': loadedCards == data.length}" 
-    *ngFor="let card of data" [cardContent]="card" [index]="card.index" (loaded)="loadedCards=loadedCards+1;">
+    *ngFor="let card of data" [cardContent]="card" [index]="card.index" [flipped]="true" (loaded)="loadedCards=loadedCards+1;">
   </app-card>
 </div>

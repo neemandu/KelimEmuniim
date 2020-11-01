@@ -9,3 +9,17 @@
 #nav-buttons {
   margin: 5px 10px 5px 0px;
 }
+
+.sticky-top {
+  z-index: 1000;
+  margin-bottom: 5px;
+}
+
+img {
+  height: 5rem;
+  margin: 5px;
+}
+
+#logo {
+  text-align: center;
+}

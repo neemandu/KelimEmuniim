@@ -1,5 +1,5 @@
 app-pack {
-  margin: 10px 10px;
+  margin: 10px 15px;
 }
 
 #filters {
@@ -29,15 +29,4 @@ mat-form-field {
   text-align: right;
   margin-right: 10px;
   margin-left: 10px;
-}
-
-.pack {
-  /* visibility: hidden; */
-  opacity: 0;
-  transition: opacity 0.1s linear;
-}
-
-.pack-reveal {
-  /* visibility: visible; */
-  opacity: 1;
 }

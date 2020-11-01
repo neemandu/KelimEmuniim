@@ -2,6 +2,10 @@
   direction: rtl;
 }
 
+app-card {
+  max-width: 25vw;
+}
+
 .card-pre-reveal {
   margin: 10px 10px;
   max-height: 85vh;

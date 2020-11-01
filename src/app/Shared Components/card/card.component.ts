@@ -11,6 +11,7 @@ export class CardComponent implements OnInit {
   @Input() cardContent: Card;
   @Input() selected: boolean = false;
   @Input() index: number;
+  @Input() flipped: boolean = true;
   @Output() cardSelectedEmmiter: EventEmitter<any> = new EventEmitter();
   @Output() loaded: EventEmitter<any> = new EventEmitter<any>();
   

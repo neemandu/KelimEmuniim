@@ -1,14 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-.zoom {
-  transition: transform .2s; /* Animation */
+html,
+body {
+  height: 100%;
 }
 
-.zoom:hover {
-  transform: scale(1.16); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.item {
+  /* visibility: hidden; */
+  opacity: 0;
+  transition: transform .2s, opacity 0.5s linear;
+}
+
+.item-reveal {
+  /* visibility: visible; */
+  opacity: 1;
+}
+
+.item:hover {
+  transform: scale(1.05);
+  /* (110% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
 .mat-icon {
-    vertical-align: middle;
- }
+  vertical-align: middle;
+}
+
+.clickable {
+  cursor: pointer;
+}

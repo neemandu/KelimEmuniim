@@ -1,10 +1,8 @@
-<mdb-navbar style="direction: ltr" SideClass="navbar navbar-expand-lg navbar-dark bg-primary orange" [containerInside]="false">
+<!-- <mdb-navbar style="direction: ltr" SideClass="navbar navbar-expand-lg navbar-dark bg-primary orange" [containerInside]="false">
   <mdb-navbar-brand ><a class="navbar-brand " href="#">Mentor-Cards</a></mdb-navbar-brand>
-  <!-- Collapsible content -->
   <div>
   <links>
 
-    <!-- Links -->
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link waves-light" mdbWavesEffect routerLink="/home-page">בית<span class="sr-only">(current)</span></a>
@@ -16,33 +14,34 @@
     </ul>
   </links>
 </div>
-</mdb-navbar>
+</mdb-navbar> -->
 
 
-<!--<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark bg-primary" [containerInside]="false">
+<!-- <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark bg-primary" [containerInside]="false"> -->
 
 
-<nav class="nav navbar-light bg-light d-flex justify-content-between">
+<div id="logo">
+  <img src="/assets/Logo.png">
+</div>
+
+<nav class="nav navbar-light bg-light justify-content-center sticky-top">
   <div id="nav-buttons">
-   <button type="button" class="btn btn-light">
+    <!-- <button type="button" class="btn btn-light">
       <mat-icon matBadge="15" clsas="btn-icon" routerLink="/shopping-cart-page">shopping_cart</mat-icon>
     </button> -->
- <!--   <button type="button" class="btn btn-light" routerLink="/home-page">מסך הבית</button>
+    <button type="button" class="btn btn-light" routerLink="/home-page">מסך הבית</button>
     <button type="button" class="btn btn-light" routerLink="/about-page">עלינו</button>
-    <form class="form-inline waves-light" mdbWavesEffect>
+    <!-- <form class="form-inline waves-light" mdbWavesEffect>
       <div class="md-form my-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Search">
       </div>
-    </form>
+    </form> -->
   </div>
-  <div id="logo">
-    <h1>Mentor Cards</h1>
-  </div>
+</nav>
 
-</mdb-navbar>-->
+<!-- </mdb-navbar> -->
 <!-- </nav><form [formGroup]="packIdForm" class="form-inline">
     <input formControlName="packId" class="form-control mr-sm-2" type="number" min=0 placeholder="מספר חפישה">
     <button class="btn btn-outline-success my-2 mr-sm-2" [disabled]="!packIdForm.valid" (click)="getPackById()">משוך חפיסה</button>
   </form>
   <button class="btn btn-outline-success my-2  mr-sm-2" (click)="getAllPacks()">כל החפיסות</button> -->
-

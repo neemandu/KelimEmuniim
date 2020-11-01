@@ -5,7 +5,7 @@
   </button>
 
   <!-- <app-card class="card-pre-reveal" [cardContent]="selectedCard"> -->
-  <app-card [ngClass]="{'card-pre-reveal': true, 'card-reveal': cardLoaded}"  [cardContent]="selectedCard" (loaded)="cardLoaded=true">
+  <app-card [ngClass]="{'card-pre-reveal': true, 'card-reveal': cardLoaded}"  [cardContent]="selectedCard" [flipped]="true" (loaded)="cardLoaded=true">
   </app-card>
 
   <button type="button" class="btn btn-light" [disabled]="index == 0" (click)="prevCard()">

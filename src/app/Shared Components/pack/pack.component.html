@@ -1,19 +1,10 @@
 <div class="d-flex flex-column">
   <h3 id="pack-desc">{{packInfo.description}}</h3>
-  <img routerLink="/pack-view/{{packInfo.id}}" (load)="imgLoaded()" src={{packInfo.imgUrl}} matTooltip="קטגוריות: {{packInfo.categories | tooltipListView}} | תגיות: {{packInfo.tags | tooltipListView}}"
-  matTooltipShowDelay="1000" [matTooltipClass]="{'tooltip-class' : true}">
-<!--   
-  <div class="flip-card">
-    <div class="flip-card-inner ">
-      <div class="flip-card-front">
-        <img src="{{packInfo.imgUrl}}">
-      </div>
-      <div class="flip-card-back">
-        <app-pack-back [packInfo]="packInfo"></app-pack-back>
-      </div>
-    </div>
-  </div> -->
-  
+  <img routerLink="/pack-view/{{packInfo.id}}" (load)="imgLoaded()" src={{packInfo.imgUrl}}
+    matTooltip="קטגוריות: {{packInfo.categories | tooltipListView}} | תגיות: {{packInfo.tags | tooltipListView}}"
+    matTooltipShowDelay="1000" [matTooltipClass]="{'tooltip-class' : true}" class='clickable'd>
+
+
   <div id="pack-buttons" class="d-flex justify-content-between">
     <div id="pack-icons">
       <mat-icon *ngIf="this.fav" matRipple [matRippleRadius]="10" [matRippleUnbounded]="true"

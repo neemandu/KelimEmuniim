@@ -19,6 +19,7 @@ export class PackContentPageComponent implements OnInit {
   pack: PackContent;
   selectedCards: any[] = []
   loadedCards: number = 0;
+  flipped: boolean = false;
 
   constructor(public route: ActivatedRoute, private cardsService: CardsService, public dialog: MatDialog, private overlaySpinnerService: OverlaySpinnerService) {
     this.route.params.subscribe(params => {

@@ -16,7 +16,7 @@ import { CardsRevealDialogComponent } from './Pages/pack-content-page/cards-reve
 import { RandomCardRevealDialogComponent } from './Pages/pack-content-page/random-card-reveal-dialog/random-card-reveal-dialog.component';
 
 //Material
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+// import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
@@ -55,7 +55,7 @@ import { OverlaySpinnerComponent } from './main-screen/overlay-spinner/overlay-s
     RandomCardRevealDialogComponent,
   ],
   imports: [
-    MDBBootstrapModule.forRoot(),
+    // MDBBootstrapModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
