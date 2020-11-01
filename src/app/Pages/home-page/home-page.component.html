@@ -35,7 +35,7 @@
   </mat-selection-list> -->
 </div>
 <div class="d-flex flex-row flex-wrap">
-  <app-pack [ngClass]="{'item': true, 'item-reveal': loadedPacks == allPacks.length}" *ngFor="let packInfo of allPacks"
-    [packInfo]="packInfo" (loaded)="packLoaded()"></app-pack>
-  <!-- <app-pack *ngFor="let packInfo of allPacks" [packInfo]="packInfo" class="zoom" (loaded)="packLoaded()"></app-pack> -->
+  <!-- <app-pack [ngClass]="{'item': true, 'item-reveal': loadedPacks == allPacks.length}" *ngFor="let packInfo of allPacks" -->
+  <app-pack [ngClass]="{'item': true}" *ngFor="let packInfo of allPacks" [packInfo]="packInfo" (loaded)="packLoaded()">
+  </app-pack>
 </div>

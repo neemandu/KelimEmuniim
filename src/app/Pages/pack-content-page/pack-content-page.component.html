@@ -1,7 +1,7 @@
 <div *ngIf="pack" class="d-flex flex-row flex-wrap">
   <!-- <app-card [ngStyle]="{'visibility': loadedCards == pack.cards.length ? 'visible' : 'hidden'}" -->
     <!-- <app-card class="zoom" -->
-  <app-card [ngClass]="{'clickable': true, 'item': true, 'item-reveal': loadedCards == pack.cards.length}"
+  <app-card [ngClass]="{'clickable': true, 'item-hidden': true, 'item-reveal': loadedCards == pack.cards.length}"
     *ngFor="let card of pack.cards; let i = index" [cardContent]="card" [selected]="selectedCards.includes(card)"
     [index]="i+1" [flipped]="flipped" (click)="cardSelected(card, i+1)" (loaded)="cardLoaded()">
   </app-card>
