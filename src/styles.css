@@ -37,3 +37,11 @@ body {
 .clickable {
   cursor: pointer;
 }
+
+.rtl-snackbar {
+  direction: rtl !important;
+  color: black;
+  background-color: #feefd7;
+  border: 4px double #ffcf00;
+  min-width: 0 !important;
+}

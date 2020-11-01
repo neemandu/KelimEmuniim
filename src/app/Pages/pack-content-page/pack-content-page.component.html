@@ -1,6 +1,4 @@
 <div *ngIf="pack" class="d-flex flex-row flex-wrap">
-  <!-- <app-card [ngStyle]="{'visibility': loadedCards == pack.cards.length ? 'visible' : 'hidden'}" -->
-    <!-- <app-card class="zoom" -->
   <app-card [ngClass]="{'clickable': true, 'item-hidden': true, 'item-reveal': loadedCards == pack.cards.length}"
     *ngFor="let card of pack.cards; let i = index" [cardContent]="card" [selected]="selectedCards.includes(card)"
     [index]="i+1" [flipped]="flipped" (click)="cardSelected(card, i+1)" (loaded)="cardLoaded()">
@@ -8,7 +6,7 @@
 </div>
 
 <nav id="bottom-nav" *ngIf="loadedCards == pack.cards.length"
-  class="nav navbar-light bg-light d-flex justify-content-between">
+  class="nav navbar-light bg-light d-flex justify-content-between align-items-center">
   <div id="nav-buttons">
     <button type="button" class="option-btn" (click)="shuffle()">ערבב</button>
     <button type="button" class="option-btn" (click)="flipped = !flipped; selectedCards = []">הפוך חפיסה</button>
@@ -17,5 +15,8 @@
     <button type="button" class="option-btn" (click)="selectedCards = []" [disabled]="selectedCards.length == 0">איפוס
       בחירה</button>
     <button type="button" class="option-btn" (click)="openRandomCardsModal()">הצג קלף אקראי</button>
+  </div>
+  <div id="amountChosen">
+    <p>{{selectedCards.length}}/5 קלפים נבחרו</p>
   </div>
 </nav>

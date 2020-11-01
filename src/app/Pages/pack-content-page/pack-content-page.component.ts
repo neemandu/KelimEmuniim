@@ -51,6 +51,12 @@ export class PackContentPageComponent implements OnInit {
     else {
       if (this.selectedCards.length < 5)
         this.selectedCards.push(card)
+      else {
+        this.cardsService._snackBar.open('יש לבחור עד 5 קלפים', '', {
+          duration: 1500,
+          panelClass: ['rtl-snackbar']
+        });
+      }
       card.index = index;
     }
   }
@@ -86,8 +92,8 @@ export class PackContentPageComponent implements OnInit {
   }
 
   cardLoaded(): void {
-    this.loadedCards ++;
-    if(this.loadedCards == this.pack.cards.length){
+    this.loadedCards++;
+    if (this.loadedCards == this.pack.cards.length) {
       this.overlaySpinnerService.changeOverlaySpinner(false);
     }
   }
