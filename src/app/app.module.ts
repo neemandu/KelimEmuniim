@@ -33,6 +33,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { OverlaySpinnerComponent } from './main-screen/overlay-spinner/overlay-spinner.component';
+import { TransitionGroupComponent, TransitionGroupItemDirective } from './Pages/pack-content-page/transition-group';
 
 
 
@@ -53,6 +54,8 @@ import { OverlaySpinnerComponent } from './main-screen/overlay-spinner/overlay-s
     CardsRevealDialogComponent,
     OverlaySpinnerComponent,
     RandomCardRevealDialogComponent,
+    TransitionGroupComponent, 
+    TransitionGroupItemDirective
   ],
   imports: [
     // MDBBootstrapModule.forRoot(),

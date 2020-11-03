@@ -7,12 +7,12 @@ import { ShoppingCartPageComponent } from './Pages/shopping-cart-page/shopping-c
 
 const routes: Routes = [
   { path: '', redirectTo: '/home-page', pathMatch: 'full' },
-  { path: '**', redirectTo: '/home-page', pathMatch: 'full' },
   { path: 'home-page', component: HomePageComponent },
   { path: 'shopping-cart-page', component: ShoppingCartPageComponent },
   { path: 'about-page', component: AboutPageComponent },
   { path: 'pack-view/:id', component: PackContentPageComponent },
-  // { path: 'all-packs-view', component: FirstComponent },
+  { path: '**', redirectTo: '/home-page' },
+
 ];
 
 @NgModule({

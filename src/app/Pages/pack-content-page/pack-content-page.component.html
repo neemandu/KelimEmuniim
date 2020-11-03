@@ -1,6 +1,7 @@
-<div *ngIf="pack" class="d-flex flex-row flex-wrap">
-  <app-card [ngClass]="{'clickable': true, 'item-hidden': true, 'item-reveal': loadedCards == pack.cards.length}"
-    *ngFor="let card of pack.cards; let i = index" [cardContent]="card" [selected]="selectedCards.includes(card)"
+<div *ngIf="pack" [transition-group]="'flip-list'" class="d-flex flex-row flex-wrap">
+  <app-card
+    [ngClass]="{'clickable': true, 'shuffle-item': true, 'item-hidden': true, 'item-reveal': loadedCards == pack.cards.length}"
+    *ngFor="let card of pack.cards; let i = index" transition-group-item [cardContent]="card" [selected]="selectedCards.includes(card)"
     [index]="i+1" [flipped]="flipped" (click)="cardSelected(card, i+1)" (loaded)="cardLoaded()">
   </app-card>
 </div>

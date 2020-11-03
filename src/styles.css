@@ -46,3 +46,8 @@ body {
   border: 4px double #ffcf00;
   min-width: 0 !important;
 }
+
+.shuffle-item {
+  transition: transform 1s;
+  /* transition: ease-in 2s; */
+}

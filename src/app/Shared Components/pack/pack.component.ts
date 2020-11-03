@@ -15,10 +15,11 @@ export class PackComponent implements OnInit, OnDestroy {
   @Input() packInfo: PackInfo;
   @Output() loaded: EventEmitter<any> = new EventEmitter<any>();
   fav: boolean = false;
-
+  
   constructor(private cardsService: CardsService) { }
-
+  
   ngOnInit() {
+    // console.log("packInfo", this.packInfo)
     this.Subscription.add(this.cardsService.favoriteChangeEmmiter.subscribe((favorites: number[]) => {
       this.fav = favorites.includes(this.packInfo.id)
     }));
