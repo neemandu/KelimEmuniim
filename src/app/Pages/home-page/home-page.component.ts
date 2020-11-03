@@ -14,7 +14,6 @@ export class HomePageComponent implements OnInit, OnDestroy {
   Subscription: Subscription = new Subscription();
 
   allPacks: PackInfo[] = [];
-  allPacksToShow: PackInfo[] = [];
   allCategories: string[] = [];
   allFavorites: number[] = [];
   loadedPacks: number;
@@ -66,6 +65,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
   packLoaded(): void {
     this.loadedPacks++;
     if (this.loadedPacks == this.allPacks.length) {
+      console.log("HomePageComponent -> packLoaded -> this.loadedPacks", this.loadedPacks)
       this.overlaySpinnerService.changeOverlaySpinner(false);
     }
   }
