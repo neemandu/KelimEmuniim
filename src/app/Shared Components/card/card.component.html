@@ -1,12 +1,12 @@
 <div class="d-flex flex-column">
-  <div >
+  <div>
     <div [ngClass]="{'flip-box-inner': true, 'flip': flipped}">
       <div class="flip-box-front">
         <img src="/assets/Mentor Cards Back.png" [ngClass]="{'img-unselected': !selected, 'img-selected': selected}">
       </div>
       <div class="flip-box-back">
         <img (load)="imgLoaded()" [ngClass]="{'img-unselected': !selected, 'img-selected': selected}"
-          src={{cardContent.imgUrl}}>
+          src={{cardContent.imgUrl}} data-src={{cardContent.imgUrl}}>
       </div>
     </div>
   </div>
