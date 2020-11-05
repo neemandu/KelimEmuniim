@@ -33,6 +33,7 @@ export class PackContentPageComponent implements OnInit {
     var packByIdSub = this.cardsService.getPackById(this.id).subscribe((res: any) => {
       packByIdSub.unsubscribe();
       this.pack = new PackContent().deseralize(res.body);
+      console.log("ngOnInit -> this.pack", this.pack)
     }, error => {
       let snackBarRef = this.cardsService._snackBar.open('שגיאה במשיכת חפיסת הקלפים, נסו שנית', 'רענן', {
         duration: 20000,
@@ -79,16 +80,25 @@ export class PackContentPageComponent implements OnInit {
   }
 
   openRandomCardsModal(): void {
+    if (this.flipped) {
+      this.flipped = !this.flipped
+    }
     this.shuffle();
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
     dialogConfig.maxHeight = '85vh';
     dialogConfig.data = this.pack.cards;
-    const dialogRef = this.dialog.open(RandomCardRevealDialogComponent, dialogConfig);
-    var dialogSub = dialogRef.afterClosed().subscribe(() => {
-      dialogSub.unsubscribe();
+    this.sleep(800).then(() => {
+      const dialogRef = this.dialog.open(RandomCardRevealDialogComponent, dialogConfig);
+      var dialogSub = dialogRef.afterClosed().subscribe(() => {
+        dialogSub.unsubscribe();
+      });
     });
+  }
+
+  sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   cardLoaded(): void {

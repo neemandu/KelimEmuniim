@@ -7,7 +7,9 @@ body {
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  /* font-family: Roboto, "Helvetica Neue", sans-serif; */
+  font-family: 'rubik'!important;
+  background-color: #f8f9fa!important;
 }
 
 .item {
@@ -50,4 +52,9 @@ body {
 .shuffle-item {
   transition: transform 1s;
   /* transition: ease-in 2s; */
+}
+
+@font-face {
+  font-family: rubik;
+  src: url(\assets\Fonts\Rubik-VariableFont_wght.ttf) format("opentype");
 }

@@ -13,13 +13,22 @@
 .sticky-top {
   z-index: 1000;
   margin-bottom: 5px;
+  margin-top: -1px;
 }
 
 img {
-  height: 5rem;
+  height: 4rem;
   margin: 5px;
 }
 
 #logo {
+  /* margin: 10px 10px; */
+  background-color: white;
   text-align: center;
+  /* color: #fdcd00; */
+}
+
+h1 {
+  letter-spacing: 1px;
+  margin: 10px 15px;
 }

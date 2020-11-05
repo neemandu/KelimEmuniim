@@ -1,6 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { CardsService } from '../Services/cards.service';
 import { OverlaySpinnerService } from '../Services/overlay-spinner.service';
 
 @Component({
@@ -9,6 +8,15 @@ import { OverlaySpinnerService } from '../Services/overlay-spinner.service';
   styleUrls: ['./main-screen.component.css']
 })
 export class MainScreenComponent implements OnInit, OnDestroy {
+
+  // @HostListener('window:keyup', ['$event'])
+  // keyEvent(event: KeyboardEvent) {
+  //   console.log("keyEvent -> event", event)
+  //   if (event.key === 'PrintScreen') {
+  //     event.preventDefault()
+  //     return false;
+  //   }
+  // }
 
   subs: Subscription = new Subscription();
   showSpinner: boolean = true;

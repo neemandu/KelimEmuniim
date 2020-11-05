@@ -14,15 +14,20 @@ export class CardComponent implements OnInit {
   @Input() flipped: boolean = true;
   @Output() cardSelectedEmmiter: EventEmitter<any> = new EventEmitter();
   @Output() loaded: EventEmitter<any> = new EventEmitter<any>();
-  
+
   constructor() { }
-  
+
   ngOnInit() {
     // console.log("CardComponent -> card", this.cardContent)
   }
 
   imgLoaded(): any {
     this.loaded.emit();
+  }
+
+
+  onRightClick(): boolean {
+    return false;
   }
 }
 

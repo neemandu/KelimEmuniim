@@ -1,41 +1,45 @@
-<h1 style="text-align: center">החפיסות שלנו</h1>
-<div id="filters" class="float-right d-flex flex-column">
-  <h3 id="filter-by-text">סינון לפי:</h3>
-  <mat-divider></mat-divider>
-  <h3 id="filter-by-options-title">טקסט חופשי</h3>
-  <mat-form-field>
-    <mat-label>סינון חופשי</mat-label>
-    <input #filterText matInput type="text" autocomplete="off" [(ngModel)]="freeTextFilterSelected"
-      (keyup)="filterPacks()">
-    <button mat-button [ngStyle]="{'visibility': filterText.value ? 'visible' : 'hidden'}" matSuffix mat-icon-button
-      aria-label="Clear" (click)="freeTextFilterSelected = ''; filterPacks()">
-      <mat-icon>close</mat-icon>
-    </button>
-  </mat-form-field>
-  <mat-divider></mat-divider>
-  <h3 id="filter-by-options-title">קטגוריות</h3>
-  <mat-selection-list #categories (selectionChange)="filterPacks()" [(ngModel)]="selectedCategories">
-    <mat-list-option disableRipple style="direction: ltr;" *ngFor="let category of allCategories" [value]="category">
-      {{category}}
-    </mat-list-option>
-  </mat-selection-list>
-  <mat-divider></mat-divider>
-  <h3 id="filter-by-options-title">המועדפים שלי</h3>
-  <mat-selection-list #favorites (selectionChange)="filterPacks()" [(ngModel)]="selectedFavorites">
-    <mat-list-option disableRipple style="direction: ltr;" *ngFor="let fav of getAllFavoritesDesc()" [value]="fav">
-      {{fav}}
-    </mat-list-option>
-  </mat-selection-list>
-  <mat-divider></mat-divider>
-  <!-- <h3 id="filter-by-options-title">מותגים</h3>
+<div id="content">
+  <div id="filters" class="float-right d-flex flex-column">
+    <!-- <h3 id="filter-by-text">סינון לפי:</h3> -->
+    <!-- <mat-divider></mat-divider> -->
+    <h1 style="text-align: center;">סינון וחיפוש</h1>
+    <h3 id="filter-by-options-title">חיפוש</h3>
+    <mat-form-field>
+      <mat-label>הקלד מילת מפתח, נושא...</mat-label>
+      <input #filterText matInput type="text" autocomplete="off" [(ngModel)]="freeTextFilterSelected"
+        (keyup)="filterPacks()">
+      <button mat-button [ngStyle]="{'visibility': filterText.value ? 'visible' : 'hidden'}" matSuffix mat-icon-button
+        aria-label="Clear" (click)="freeTextFilterSelected = ''; filterPacks()">
+        <mat-icon style="font-family: 'Material Icons';">close</mat-icon>
+      </button>
+    </mat-form-field>
+    <!-- <mat-divider></mat-divider> --><br>
+    <h3 id="filter-by-options-title">קטגוריות</h3>
+    <mat-selection-list #categories (selectionChange)="filterPacks()" [(ngModel)]="selectedCategories">
+      <mat-list-option disableRipple style="direction: ltr;" *ngFor="let category of allCategories" [value]="category">
+        {{category}}
+      </mat-list-option>
+    </mat-selection-list>
+    <!-- <mat-divider></mat-divider> --><br>
+    <h3 id="filter-by-options-title">המועדפים שלי</h3>
+    <mat-selection-list #favorites (selectionChange)="filterPacks()" [(ngModel)]="selectedFavorites">
+      <mat-list-option disableRipple style="direction: ltr;" *ngFor="let fav of getAllFavoritesDesc()" [value]="fav">
+        {{fav}}
+      </mat-list-option>
+    </mat-selection-list>
+    <!-- <mat-divider></mat-divider> -->
+    <!-- <h3 id="filter-by-options-title">מותגים</h3>
   <mat-selection-list #categories>
     <mat-list-option disableRipple style="direction: ltr;" *ngFor="let category of allCategories">
       {{category}}
     </mat-list-option>
   </mat-selection-list> -->
-</div>
-<!-- <div [ngClass]="{'item-hidden': true, 'item-reveal': loadedPacks == allPacks.length}" class="d-flex flex-row flex-wrap"> -->
-<div class="d-flex flex-row flex-wrap">
-  <app-pack [ngClass]="{'item': true}" *ngFor="let packInfo of allPacks" [packInfo]="packInfo" (loaded)="packLoaded()">
-  </app-pack>
+  </div>
+  <!-- <div [ngClass]="{'item-hidden': true, 'item-reveal': loadedPacks == allPacks.length}" class="d-flex flex-row flex-wrap"> -->
+  <h1 style="text-align: center; margin-left: 14rem;">החפיסות שלנו</h1>
+  <div class="d-flex flex-row flex-wrap">
+    <app-pack [ngClass]="{'item': true}" *ngFor="let packInfo of allPacks" [packInfo]="packInfo"
+      (loaded)="packLoaded()">
+    </app-pack>
+  </div>
 </div>
