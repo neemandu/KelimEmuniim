@@ -1,5 +1,6 @@
 * {
   font-family: 'rubik';
+  font-size: inherit;
 }
 
 #content {
@@ -13,7 +14,7 @@ app-pack {
 #filters {
   max-width: 15%;
   min-width: 10%;
-  word-break: break-all;
+  word-break: keep-all;
   margin-left: 10px;
 }
 

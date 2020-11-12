@@ -78,15 +78,15 @@ app-card {
   color: white;
 }
 
-/* .option-btn:hover:enabled {
-  background: #f0d9ac;
-}
-
-.option-btn:active:enabled {
-  background: #dfc899;
-} */
-
 p {
   margin: 10px;
   font-size: 1rem;
 }
+
+@media screen and (max-width: 600px) {
+  p {
+    margin: 10px;
+    font-size: inherit;
+  }
+}
+

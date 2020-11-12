@@ -1,5 +1,5 @@
 <div id="content">
-  <div id="filters" class="float-right d-flex flex-column">
+  <div *ngIf="!mobile" id="filters" class="float-right d-flex flex-column">
     <!-- <h3 id="filter-by-text">סינון לפי:</h3> -->
     <!-- <mat-divider></mat-divider> -->
     <h1 style="text-align: center;">סינון וחיפוש</h1>
@@ -36,7 +36,7 @@
   </mat-selection-list> -->
   </div>
   <!-- <div [ngClass]="{'item-hidden': true, 'item-reveal': loadedPacks == allPacks.length}" class="d-flex flex-row flex-wrap"> -->
-  <h1 style="text-align: center; margin-left: 14rem;">החפיסות שלנו</h1>
+  <h1 style="text-align: center; margin-left: 14rem;">הערכות שלנו</h1>
   <div class="d-flex flex-row flex-wrap">
     <app-pack [ngClass]="{'item': true}" *ngFor="let packInfo of allPacks" [packInfo]="packInfo"
       (loaded)="packLoaded()">

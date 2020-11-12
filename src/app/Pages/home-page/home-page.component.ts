@@ -12,6 +12,7 @@ import { OverlaySpinnerService } from 'src/app/Services/overlay-spinner.service'
 export class HomePageComponent implements OnInit, OnDestroy {
 
   Subscription: Subscription = new Subscription();
+  mobile: boolean;
 
   allPacks: PackInfo[] = [];
   allCategories: string[] = [];
@@ -29,6 +30,8 @@ export class HomePageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    window.addEventListener('resize', () => {this.mobile = window.screen.width <= 600});
+    this.mobile = window.screen.width <= 600;
     this.loadedPacks = 0;
     this.Subscription.add(this.cardsService.favoriteChangeEmmiter.subscribe((favorites: number[]) => {
       this.allFavorites = favorites

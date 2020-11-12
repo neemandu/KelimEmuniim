@@ -6,6 +6,11 @@ app-card {
   max-width: 25vw;
 }
 
+.content {
+  display: flex;
+  flex-direction: row;
+}
+
 .card-pre-reveal {
   margin: 10px 10px;
   max-height: 85vh;
@@ -17,4 +22,16 @@ app-card {
 .card-reveal {
   /* visibility: visible; */
   opacity: 1;
+}
+
+@media screen and (max-width: 600px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  app-card {
+    max-width: 100%;
+  }
 }
