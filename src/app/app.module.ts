@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+// import Amplify from 'aws-amplify';
+// import awsconfig from './aws-exports'; 
+// Amplify.configure(awsconfig);
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,9 +19,13 @@ import { TooltipListViewPipe } from './Shared Components/Pipes/tooltip-list-view
 import { CardsRevealDialogComponent } from './Pages/pack-content-page/cards-reveal-dialog/cards-reveal-dialog.component';
 import { RandomCardRevealDialogComponent } from './Pages/pack-content-page/random-card-reveal-dialog/random-card-reveal-dialog.component';
 import { TransitionGroupComponent, TransitionGroupItemDirective } from './Pages/pack-content-page/transition-group';
+import { OverlaySpinnerComponent } from './main-screen/overlay-spinner/overlay-spinner.component';
+import { ForgotPasswordComponent } from './main-screen/user-related/user-related-dialog/forgot-password/forgot-password.component';
+import { LoginComponent } from './main-screen/user-related/user-related-dialog/login/login.component';
+import { RegisterComponent } from './main-screen/user-related/user-related-dialog/register/register.component';
+import { UserRelatedDialogComponent } from './main-screen/user-related/user-related-dialog/user-related-dialog.component';
 
 //Material
-// import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
@@ -33,8 +41,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { OverlaySpinnerComponent } from './main-screen/overlay-spinner/overlay-spinner.component';
-
+import { MatTabsModule } from '@angular/material/tabs';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -54,8 +62,12 @@ import { OverlaySpinnerComponent } from './main-screen/overlay-spinner/overlay-s
     CardsRevealDialogComponent,
     OverlaySpinnerComponent,
     RandomCardRevealDialogComponent,
-    TransitionGroupComponent, 
-    TransitionGroupItemDirective
+    TransitionGroupComponent,
+    TransitionGroupItemDirective, 
+    LoginComponent, 
+    RegisterComponent, 
+    ForgotPasswordComponent,
+    UserRelatedDialogComponent
   ],
   imports: [
     // MDBBootstrapModule.forRoot(),
@@ -76,11 +88,13 @@ import { OverlaySpinnerComponent } from './main-screen/overlay-spinner/overlay-s
     MatTooltipModule,
     MatDialogModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatTabsModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [CardsRevealDialogComponent, RandomCardRevealDialogComponent]
+  entryComponents: [CardsRevealDialogComponent, RandomCardRevealDialogComponent, UserRelatedDialogComponent]
 
 })
 export class AppModule { }

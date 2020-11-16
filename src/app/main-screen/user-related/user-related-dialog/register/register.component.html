@@ -1,0 +1,27 @@
+<form [formGroup]="registerForm" (ngSubmit)="onRegisterSubmit()">
+  <div class="d-flex flex-column">
+    <mat-form-field>
+      <mat-label>שם פרטי</mat-label>
+      <input autocomplete="off" formControlName="name" matInput>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>שם משפחה</mat-label>
+      <input autocomplete="off" formControlName="lastName" matInput>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>אימייל</mat-label>
+      <input autocomplete="off" formControlName="username" matInput>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>סיסמא</mat-label>
+      <input autocomplete="off" (keyup)="test()" formControlName="password" matInput
+        [type]="hidePW ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hidePW = !hidePW" [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hidePW">
+        <mat-icon style="font-family: 'Material Icons';">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <button type="submit" class="option-btn" id="login-button" [disabled]="!registerForm.valid">הרשם</button>
+  </div>
+</form>
+<mat-progress-bar [ngStyle]="{'visibility': showLoading ? 'visible' : 'hidden'}" mode="query"></mat-progress-bar>

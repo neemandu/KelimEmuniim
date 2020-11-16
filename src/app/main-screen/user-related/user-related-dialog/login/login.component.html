@@ -1,0 +1,39 @@
+<div *ngIf="login">
+  <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()" *ngIf="login">
+    <div class="d-flex flex-column">
+      <mat-form-field>
+        <mat-label>אימייל</mat-label>
+        <input autocomplete="off" formControlName="username" matInput color="primary">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>סיסמא</mat-label>
+        <input autocomplete="off" formControlName="password" matInput
+          [type]="hidePW ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hidePW = !hidePW">
+          <mat-icon style="font-family: 'Material Icons';">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <button type="submit" class="option-btn" id="login-button" [disabled]="!loginForm.valid">התחבר</button>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="!login">
+  <form [formGroup]="forgotPasswordForm" (ngSubmit)="onForgotPasswordSubmit()">
+    <div class="d-flex flex-column">
+      <mat-form-field>
+        <mat-label>אימייל</mat-label>
+        <input autocomplete="off" formControlName="username" matInput>
+      </mat-form-field>
+      <button type="submit" class="option-btn" id="login-button" [disabled]="!forgotPasswordForm.valid">שחזר סיסמא</button>
+    </div>
+  </form>
+</div>
+<mat-progress-bar [ngStyle]="{'visibility': showLoading ? 'visible' : 'hidden'}" mode="query"></mat-progress-bar>
+<!-- <br> -->
+<mat-divider></mat-divider>
+<br>
+<div id="formFooter">
+  <a class="underlineHover" style="cursor: pointer;" *ngIf="login" (click)="login = !login; loginForm.reset()">שכחת סיסמא?</a>
+  <a class="underlineHover" style="cursor: pointer;" *ngIf="!login" (click)="login = !login; forgotPasswordForm.reset()">התחברות</a>
+</div>

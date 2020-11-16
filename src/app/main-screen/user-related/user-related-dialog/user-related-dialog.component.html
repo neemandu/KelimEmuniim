@@ -1,0 +1,18 @@
+<!-- <div class="overlay" *ngIf="showSpinner">
+  <div class="spinner-wrapper">
+    <app-overlay-spinner></app-overlay-spinner>
+  </div>
+</div> -->
+
+<mat-tab-group (selectedTabChange)="tabChanged($event)" mat-align-tabs="center" dynamicHeight>
+  <mat-tab label="התחברות">
+    <!-- <ng-template matTabContent> -->
+    <app-login></app-login>
+    <!-- </ng-template> -->
+  </mat-tab>
+  <mat-tab label="הרשמה">
+    <ng-template matTabContent>
+      <app-register></app-register>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>
