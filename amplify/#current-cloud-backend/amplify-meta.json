@@ -1,0 +1,52 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-kelimemuniim-dev-130955-authRole",
+      "UnauthRoleArn": "arn:aws:iam::150827790089:role/amplify-kelimemuniim-dev-130955-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::150827790089:role/amplify-kelimemuniim-dev-130955-authRole",
+      "Region": "eu-west-2",
+      "DeploymentBucketName": "amplify-kelimemuniim-dev-130955-deployment",
+      "UnauthRoleName": "amplify-kelimemuniim-dev-130955-unauthRole",
+      "StackName": "amplify-kelimemuniim-dev-130955",
+      "StackId": "arn:aws:cloudformation:eu-west-2:150827790089:stack/amplify-kelimemuniim-dev-130955/44fd87c0-27fc-11eb-8d6f-0647923ce83c",
+      "AmplifyAppId": "d24ivhqbkk1p4v"
+    }
+  },
+  "auth": {
+    "kelimemuniim552259e4": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-kelimemuniim-dev-130955-deployment/amplify-cfn-templates/auth/kelimemuniim552259e4-cloudformation-template.yml",
+        "logicalId": "authkelimemuniim552259e4"
+      },
+      "lastPushTimeStamp": "2020-11-16T11:17:20.070Z",
+      "output": {
+        "AppClientSecret": "v49bsb5ek3g5jph7mite28jlc2odae903pbmgm3bd46154nrhge",
+        "UserPoolId": "eu-west-2_1hTBskpq6",
+        "AppClientIDWeb": "tpjsm8pefd5l9dncfec9ahfks",
+        "AppClientID": "2gadfo2kep6pnuj829p95h922a",
+        "IdentityPoolId": "eu-west-2:6970d4d4-d3d5-4c48-857b-09db57731a4d",
+        "IdentityPoolName": "kelimemuniim552259e4_identitypool_552259e4__dev",
+        "UserPoolName": "kelimemuniim552259e4_userpool_552259e4"
+      },
+      "lastPushDirHash": "YoRiT1z2tGrV3qTsYDH2UkP4eo0="
+    }
+  },
+  "hosting": {
+    "amplifyhosting": {
+      "service": "amplifyhosting",
+      "providerPlugin": "awscloudformation",
+      "type": "manual",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-kelimemuniim-dev-130955-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
+        "logicalId": "hostingamplifyhosting"
+      },
+      "lastPushTimeStamp": "2020-11-16T11:17:20.070Z",
+      "output": {},
+      "lastPushDirHash": "/+VZ33seFFqAr6wbtptwbINUfSA="
+    }
+  }
+}
