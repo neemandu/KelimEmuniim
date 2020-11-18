@@ -44,6 +44,10 @@ app-card {
   transition: color .15s ease-in-out, background-color .15s ease-in-out;
 }
 
+button:focus {
+  outline: none;
+}
+
 .top-option-btn {
   background: white;
   color: #ffa800;
@@ -89,4 +93,3 @@ p {
     font-size: inherit;
   }
 }
-

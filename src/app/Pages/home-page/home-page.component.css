@@ -3,6 +3,21 @@
   font-size: inherit;
 }
 
+.more-less-categories-icon {
+  font-size: 1.5rem;
+  font-family: 'Material Icons';
+  /* cursor: pointer; */
+}
+
+#more-less-categories-button {
+  border-style: none;
+  background: #f8f9fa;
+}
+
+button:focus {
+  outline: none;
+}
+
 #content {
   margin-top: 1rem;
 }

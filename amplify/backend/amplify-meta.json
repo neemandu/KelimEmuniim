@@ -22,7 +22,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-kelimemuniim-dev-130955-deployment/amplify-cfn-templates/auth/kelimemuniim552259e4-cloudformation-template.yml",
         "logicalId": "authkelimemuniim552259e4"
       },
-      "lastPushTimeStamp": "2020-11-16T17:41:32.365Z",
+      "lastPushTimeStamp": "2020-11-18T11:34:48.918Z",
       "output": {
         "AppClientSecret": "v49bsb5ek3g5jph7mite28jlc2odae903pbmgm3bd46154nrhge",
         "UserPoolId": "eu-west-2_1hTBskpq6",
@@ -32,7 +32,7 @@
         "IdentityPoolName": "kelimemuniim552259e4_identitypool_552259e4__dev",
         "UserPoolName": "kelimemuniim552259e4_userpool_552259e4"
       },
-      "lastPushDirHash": "YoRiT1z2tGrV3qTsYDH2UkP4eo0="
+      "lastPushDirHash": "cZ7vQ8B9Ky2kBs4uiIib7T4IQMQ="
     }
   },
   "hosting": {
@@ -44,9 +44,9 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-kelimemuniim-dev-130955-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
         "logicalId": "hostingamplifyhosting"
       },
-      "lastPushTimeStamp": "2020-11-16T17:41:32.373Z",
+      "lastPushTimeStamp": "2020-11-18T11:34:48.926Z",
       "output": {},
-      "lastPushDirHash": "/+VZ33seFFqAr6wbtptwbINUfSA="
+      "lastPushDirHash": "e1evW+qiqAiMlhCE8d9YaQTXPPg="
     }
   }
 }

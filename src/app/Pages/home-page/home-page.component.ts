@@ -18,6 +18,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
   allCategories: string[] = [];
   allFavorites: number[] = [];
   loadedPacks: number;
+  categoriesToShow: number = 5;
 
   //Filters
   freeTextFilterSelected: string = '';
@@ -30,7 +31,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    window.addEventListener('resize', () => {this.mobile = window.screen.width <= 600});
+    window.addEventListener('resize', () => { this.mobile = window.screen.width <= 600 });
     this.mobile = window.screen.width <= 600;
     this.loadedPacks = 0;
     this.Subscription.add(this.cardsService.favoriteChangeEmmiter.subscribe((favorites: number[]) => {
@@ -65,6 +66,17 @@ export class HomePageComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   * Show more or less categories
+   */
+  categoriesToShowChange(): void {
+    if (this.categoriesToShow < this.allCategories.length) {
+      this.categoriesToShow += 3;
+    } else {
+      this.categoriesToShow = 5;
+    }
+  }
+
   packLoaded(): void {
     this.loadedPacks++;
     if (this.loadedPacks == this.allPacks.length) {
@@ -74,6 +86,16 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   getAllFavoritesDesc(): string[] {
     return this.cardsService.allPacks ? (this.cardsService.allPacks.filter(pack => this.allFavorites.includes(pack.id))).map(pack => pack.description) : (this.allPacks.filter(pack => this.allFavorites.includes(pack.id))).map(pack => pack.description);
+  }
+
+  categoriesSelectedChange(event): void {
+    var index = this.selectedCategories.findIndex(el => el === event.option._value)
+    index == -1 ? this.selectedCategories.push(event.option._value) : this.selectedCategories.splice(index, 1);
+  }
+
+  favoritesSelectedChange(event): void {
+    var index = this.selectedFavorites.findIndex(el => el === event.option._value)
+    index == -1 ? this.selectedFavorites.push(event.option._value) : this.selectedFavorites.splice(index, 1);
   }
 
   filterPacks(): void {
@@ -88,7 +110,6 @@ export class HomePageComponent implements OnInit, OnDestroy {
     if (this.selectedFavorites.length != 0) {
       this.favoritesFilter()
     }
-    // console.log("HomePageComponent -> filterPacks -> this.allPacks", this.allPacks)
   }
 
   freeTextFilter(): void {

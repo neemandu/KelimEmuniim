@@ -15,15 +15,24 @@
     </mat-form-field>
     <!-- <mat-divider></mat-divider> --><br>
     <h3 id="filter-by-options-title">קטגוריות</h3>
-    <mat-selection-list #categories (selectionChange)="filterPacks()" [(ngModel)]="selectedCategories">
-      <mat-list-option disableRipple style="direction: ltr;" *ngFor="let category of allCategories" [value]="category">
+    <mat-selection-list #categories (selectionChange)="categoriesSelectedChange($event); filterPacks()">
+      <mat-list-option disableRipple style="direction: ltr;"
+        *ngFor="let category of allCategories|slice:0:categoriesToShow"
+        [selected]="selectedCategories.includes(category)" [value]="category">
         {{category}}
       </mat-list-option>
+      <button id="more-less-categories-button" (click)="categoriesToShowChange()">
+        <mat-icon class="more-less-categories-icon" *ngIf="categoriesToShow < allCategories.length">expand_more
+        </mat-icon>
+        <mat-icon class="more-less-categories-icon" *ngIf="categoriesToShow >= allCategories.length">expand_less
+        </mat-icon>
+      </button>
     </mat-selection-list>
     <!-- <mat-divider></mat-divider> --><br>
     <h3 id="filter-by-options-title">המועדפים שלי</h3>
-    <mat-selection-list #favorites (selectionChange)="filterPacks()" [(ngModel)]="selectedFavorites">
-      <mat-list-option disableRipple style="direction: ltr;" *ngFor="let fav of getAllFavoritesDesc()" [value]="fav">
+    <mat-selection-list #favorites (selectionChange)="favoritesSelectedChange($event); filterPacks()">
+      <mat-list-option disableRipple style="direction: ltr;" *ngFor="let fav of getAllFavoritesDesc()"
+        [selected]="selectedFavorites.includes(fav)" [value]="fav">
         {{fav}}
       </mat-list-option>
     </mat-selection-list>

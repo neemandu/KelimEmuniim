@@ -14,8 +14,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _raw_loader_user_related_dialog_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./user-related-dialog.component.html */ "S4hl");
 /* harmony import */ var _user_related_dialog_component_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user-related-dialog.component.css */ "vlfj");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./login/login.component */ "8Pk3");
-/* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./register/register.component */ "Ytyx");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/dialog */ "0IaG");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./login/login.component */ "8Pk3");
+/* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./register/register.component */ "Ytyx");
+
 
 
 
@@ -23,18 +25,26 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var UserRelatedDialogComponent = /** @class */ (function () {
-    function UserRelatedDialogComponent() {
+    function UserRelatedDialogComponent(dialogRef) {
+        this.dialogRef = dialogRef;
     }
     UserRelatedDialogComponent.prototype.ngOnInit = function () {
     };
     UserRelatedDialogComponent.prototype.tabChanged = function (event) {
+        this.selectedTab = event.index;
+        // console.log("tabChanged -> this.selectedTab", this.selectedTab)
         this.loginChild.resetForms();
         this.registerChild.resetForms();
     };
-    UserRelatedDialogComponent.ctorParameters = function () { return []; };
+    UserRelatedDialogComponent.prototype.loggedIn = function () {
+        this.dialogRef.close();
+    };
+    UserRelatedDialogComponent.ctorParameters = function () { return [
+        { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialogRef"] }
+    ]; };
     UserRelatedDialogComponent.propDecorators = {
-        loginChild: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"], args: [_login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"], { static: false },] }],
-        registerChild: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"], args: [_register_register_component__WEBPACK_IMPORTED_MODULE_5__["RegisterComponent"], { static: false },] }]
+        loginChild: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"], args: [_login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"], { static: false },] }],
+        registerChild: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"], args: [_register_register_component__WEBPACK_IMPORTED_MODULE_6__["RegisterComponent"], { static: false },] }]
     };
     UserRelatedDialogComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
@@ -42,7 +52,7 @@ var UserRelatedDialogComponent = /** @class */ (function () {
             template: _raw_loader_user_related_dialog_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
             styles: [_user_related_dialog_component_css__WEBPACK_IMPORTED_MODULE_2__["default"]]
         }),
-        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialogRef"]])
     ], UserRelatedDialogComponent);
     return UserRelatedDialogComponent;
 }());
@@ -58,7 +68,7 @@ var UserRelatedDialogComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\dneeman\source\repos\KelimEmuniim\src\main.ts */"zUnb");
+module.exports = __webpack_require__(/*! C:\Personal\Projects\KelimEmuniim\src\main.ts */"zUnb");
 
 
 /***/ }),
@@ -72,7 +82,7 @@ module.exports = __webpack_require__(/*! C:\Users\dneeman\source\repos\KelimEmun
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar fixed-bottom navbar-light bg-light\">\r\n  <a class=\"navbar-brand\" href=\"#\">Fixed bottom</a>\r\n</nav>");
+/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar fixed-bottom navbar-light bg-light\">\n  <a class=\"navbar-brand\" href=\"#\">Fixed bottom</a>\n</nav>");
 
 /***/ }),
 
@@ -85,7 +95,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- <div class=\"d-flex\"> -->\r\n<div class=\"content\">\r\n  <button type=\"button\" class=\"btn btn-light\" [disabled]=\"index == data.length\" (click)=\"nextCard()\">\r\n    <mat-icon class=\"btn-icon\">chevron_right\r\n    </mat-icon>\r\n  </button>\r\n\r\n  <!-- <app-card class=\"card-pre-reveal\" [cardContent]=\"selectedCard\"> -->\r\n  <app-card [ngClass]=\"{'card-pre-reveal': true, 'card-reveal': cardLoaded}\"  [cardContent]=\"selectedCard\" [flipped]=\"true\" (loaded)=\"cardLoaded=true\">\r\n  </app-card>\r\n\r\n  <button type=\"button\" class=\"btn btn-light\" [disabled]=\"index == 0\" (click)=\"prevCard()\">\r\n    <mat-icon class=\"btn-icon\">chevron_left</mat-icon>\r\n  </button>\r\n\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <div class=\"d-flex\"> -->\n<div class=\"content\">\n  <button type=\"button\" class=\"btn btn-light\" [disabled]=\"index == data.length\" (click)=\"nextCard()\">\n    <mat-icon class=\"btn-icon\">chevron_right\n    </mat-icon>\n  </button>\n\n  <!-- <app-card class=\"card-pre-reveal\" [cardContent]=\"selectedCard\"> -->\n  <app-card [ngClass]=\"{'card-pre-reveal': true, 'card-reveal': cardLoaded}\"  [cardContent]=\"selectedCard\" [flipped]=\"true\" (loaded)=\"cardLoaded=true\">\n  </app-card>\n\n  <button type=\"button\" class=\"btn btn-light\" [disabled]=\"index == 0\" (click)=\"prevCard()\">\n    <mat-icon class=\"btn-icon\">chevron_left</mat-icon>\n  </button>\n\n</div>\n");
 
 /***/ }),
 
@@ -98,7 +108,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".btn {\r\n  margin-left: 2px;\r\n}\r\n\r\n.btn-icon {\r\n  margin-right: 5px;\r\n}\r\n\r\n#nav-buttons {\r\n  margin: 5px 10px 5px 0px;\r\n}\r\n\r\n.sticky-top {\r\n  z-index: 1000;\r\n  margin-bottom: 5px;\r\n  margin-top: -1px;\r\n}\r\n\r\nimg {\r\n  height: 4rem;\r\n  margin: 5px;\r\n}\r\n\r\n#logo {\r\n  /* margin: 10px 10px; */\r\n  background-color: white;\r\n  text-align: center;\r\n  /* color: #fdcd00; */\r\n}\r\n\r\nh1 {\r\n  letter-spacing: 1px;\r\n  margin: 10px 15px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWFpbi1zY3JlZW4vbmF2L25hdi5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZ0JBQWdCO0FBQ2xCOztBQUVBO0VBQ0UsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0Usd0JBQXdCO0FBQzFCOztBQUVBO0VBQ0UsYUFBYTtFQUNiLGtCQUFrQjtFQUNsQixnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSxZQUFZO0VBQ1osV0FBVztBQUNiOztBQUVBO0VBQ0UsdUJBQXVCO0VBQ3ZCLHVCQUF1QjtFQUN2QixrQkFBa0I7RUFDbEIsb0JBQW9CO0FBQ3RCOztBQUVBO0VBQ0UsbUJBQW1CO0VBQ25CLGlCQUFpQjtBQUNuQiIsImZpbGUiOiJzcmMvYXBwL21haW4tc2NyZWVuL25hdi9uYXYuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5idG4ge1xyXG4gIG1hcmdpbi1sZWZ0OiAycHg7XHJcbn1cclxuXHJcbi5idG4taWNvbiB7XHJcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XHJcbn1cclxuXHJcbiNuYXYtYnV0dG9ucyB7XHJcbiAgbWFyZ2luOiA1cHggMTBweCA1cHggMHB4O1xyXG59XHJcblxyXG4uc3RpY2t5LXRvcCB7XHJcbiAgei1pbmRleDogMTAwMDtcclxuICBtYXJnaW4tYm90dG9tOiA1cHg7XHJcbiAgbWFyZ2luLXRvcDogLTFweDtcclxufVxyXG5cclxuaW1nIHtcclxuICBoZWlnaHQ6IDRyZW07XHJcbiAgbWFyZ2luOiA1cHg7XHJcbn1cclxuXHJcbiNsb2dvIHtcclxuICAvKiBtYXJnaW46IDEwcHggMTBweDsgKi9cclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgLyogY29sb3I6ICNmZGNkMDA7ICovXHJcbn1cclxuXHJcbmgxIHtcclxuICBsZXR0ZXItc3BhY2luZzogMXB4O1xyXG4gIG1hcmdpbjogMTBweCAxNXB4O1xyXG59XHJcbiJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".btn {\r\n  margin-left: 2px;\r\n}\r\n\r\n.btn-icon {\r\n  margin-right: 5px;\r\n}\r\n\r\n#nav-buttons {\r\n  margin: 5px 10px 5px 0px;\r\n}\r\n\r\n#log-in-buttons {\r\n  width: 45%;\r\n  display: flex;\r\n  justify-content: flex-start;\r\n}\r\n\r\n.login-button {\r\n  margin-right: 5vmin;\r\n}\r\n\r\n.sticky-top {\r\n  z-index: 1000;\r\n  margin-bottom: 5px;\r\n  margin-top: -1px;\r\n}\r\n\r\nimg {\r\n  height: 4rem;\r\n  margin: 5px;\r\n}\r\n\r\n#logo {\r\n  /* margin: 10px 10px; */\r\n  background-color: white;\r\n  text-align: center;\r\n  /* color: #fdcd00; */\r\n}\r\n\r\nh1 {\r\n  letter-spacing: 1px;\r\n  margin: 10px 15px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWFpbi1zY3JlZW4vbmF2L25hdi5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZ0JBQWdCO0FBQ2xCOztBQUVBO0VBQ0UsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0Usd0JBQXdCO0FBQzFCOztBQUVBO0VBQ0UsVUFBVTtFQUNWLGFBQWE7RUFDYiwyQkFBMkI7QUFDN0I7O0FBRUE7RUFDRSxtQkFBbUI7QUFDckI7O0FBRUE7RUFDRSxhQUFhO0VBQ2Isa0JBQWtCO0VBQ2xCLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLFlBQVk7RUFDWixXQUFXO0FBQ2I7O0FBRUE7RUFDRSx1QkFBdUI7RUFDdkIsdUJBQXVCO0VBQ3ZCLGtCQUFrQjtFQUNsQixvQkFBb0I7QUFDdEI7O0FBRUE7RUFDRSxtQkFBbUI7RUFDbkIsaUJBQWlCO0FBQ25CIiwiZmlsZSI6InNyYy9hcHAvbWFpbi1zY3JlZW4vbmF2L25hdi5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmJ0biB7XHJcbiAgbWFyZ2luLWxlZnQ6IDJweDtcclxufVxyXG5cclxuLmJ0bi1pY29uIHtcclxuICBtYXJnaW4tcmlnaHQ6IDVweDtcclxufVxyXG5cclxuI25hdi1idXR0b25zIHtcclxuICBtYXJnaW46IDVweCAxMHB4IDVweCAwcHg7XHJcbn1cclxuXHJcbiNsb2ctaW4tYnV0dG9ucyB7XHJcbiAgd2lkdGg6IDQ1JTtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogZmxleC1zdGFydDtcclxufVxyXG5cclxuLmxvZ2luLWJ1dHRvbiB7XHJcbiAgbWFyZ2luLXJpZ2h0OiA1dm1pbjtcclxufVxyXG5cclxuLnN0aWNreS10b3Age1xyXG4gIHotaW5kZXg6IDEwMDA7XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG4gIG1hcmdpbi10b3A6IC0xcHg7XHJcbn1cclxuXHJcbmltZyB7XHJcbiAgaGVpZ2h0OiA0cmVtO1xyXG4gIG1hcmdpbjogNXB4O1xyXG59XHJcblxyXG4jbG9nbyB7XHJcbiAgLyogbWFyZ2luOiAxMHB4IDEwcHg7ICovXHJcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIC8qIGNvbG9yOiAjZmRjZDAwOyAqL1xyXG59XHJcblxyXG5oMSB7XHJcbiAgbGV0dGVyLXNwYWNpbmc6IDFweDtcclxuICBtYXJnaW46IDEwcHggMTVweDtcclxufVxyXG4iXX0= */");
 
 /***/ }),
 
@@ -111,7 +121,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("* {\r\n  font-family: 'rubik';\r\n}\r\n\r\n.mat-form-field {\r\n  text-align: right;\r\n}\r\n\r\n.option-btn {\r\n  margin-left: 10px;\r\n  height: 39px;\r\n  border-radius: 5px;\r\n  border: none;\r\n  font-weight: 500;\r\n  font-size: large;\r\n  transition: color .15s ease-in-out, background-color .15s ease-in-out;\r\n}\r\n\r\n#login-button {\r\n  background: #ffa800;\r\n  color: white;\r\n}\r\n\r\n#login-button:enabled:hover {\r\n  background: #e69900;\r\n  color: white;\r\n}\r\n\r\n#login-button:enabled:active {\r\n  background: #db9200;\r\n  color: white;\r\n}\r\n\r\n#login-button:disabled {\r\n  background: #e0e0e0;\r\n  color: rgb(102, 102, 102);\r\n}\r\n\r\na {\r\n  /* font-family: 'rubik'; */\r\n  font-size: 1rem;\r\n}\r\n\r\nmat-progress-bar {\r\n  margin: 10px 0px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWFpbi1zY3JlZW4vdXNlci1yZWxhdGVkL3VzZXItcmVsYXRlZC1kaWFsb2cvcmVnaXN0ZXIvcmVnaXN0ZXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLG9CQUFvQjtBQUN0Qjs7QUFFQTtFQUNFLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFLGlCQUFpQjtFQUNqQixZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsZ0JBQWdCO0VBQ2hCLHFFQUFxRTtBQUN2RTs7QUFFQTtFQUNFLG1CQUFtQjtFQUNuQixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxtQkFBbUI7RUFDbkIsWUFBWTtBQUNkOztBQUVBO0VBQ0UsbUJBQW1CO0VBQ25CLFlBQVk7QUFDZDs7QUFFQTtFQUNFLG1CQUFtQjtFQUNuQix5QkFBeUI7QUFDM0I7O0FBRUE7RUFDRSwwQkFBMEI7RUFDMUIsZUFBZTtBQUNqQjs7QUFFQTtFQUNFLGdCQUFnQjtBQUNsQiIsImZpbGUiOiJzcmMvYXBwL21haW4tc2NyZWVuL3VzZXItcmVsYXRlZC91c2VyLXJlbGF0ZWQtZGlhbG9nL3JlZ2lzdGVyL3JlZ2lzdGVyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIqIHtcclxuICBmb250LWZhbWlseTogJ3J1YmlrJztcclxufVxyXG5cclxuLm1hdC1mb3JtLWZpZWxkIHtcclxuICB0ZXh0LWFsaWduOiByaWdodDtcclxufVxyXG5cclxuLm9wdGlvbi1idG4ge1xyXG4gIG1hcmdpbi1sZWZ0OiAxMHB4O1xyXG4gIGhlaWdodDogMzlweDtcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGZvbnQtd2VpZ2h0OiA1MDA7XHJcbiAgZm9udC1zaXplOiBsYXJnZTtcclxuICB0cmFuc2l0aW9uOiBjb2xvciAuMTVzIGVhc2UtaW4tb3V0LCBiYWNrZ3JvdW5kLWNvbG9yIC4xNXMgZWFzZS1pbi1vdXQ7XHJcbn1cclxuXHJcbiNsb2dpbi1idXR0b24ge1xyXG4gIGJhY2tncm91bmQ6ICNmZmE4MDA7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG59XHJcblxyXG4jbG9naW4tYnV0dG9uOmVuYWJsZWQ6aG92ZXIge1xyXG4gIGJhY2tncm91bmQ6ICNlNjk5MDA7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG59XHJcblxyXG4jbG9naW4tYnV0dG9uOmVuYWJsZWQ6YWN0aXZlIHtcclxuICBiYWNrZ3JvdW5kOiAjZGI5MjAwO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxufVxyXG5cclxuI2xvZ2luLWJ1dHRvbjpkaXNhYmxlZCB7XHJcbiAgYmFja2dyb3VuZDogI2UwZTBlMDtcclxuICBjb2xvcjogcmdiKDEwMiwgMTAyLCAxMDIpO1xyXG59XHJcblxyXG5hIHtcclxuICAvKiBmb250LWZhbWlseTogJ3J1YmlrJzsgKi9cclxuICBmb250LXNpemU6IDFyZW07XHJcbn1cclxuXHJcbm1hdC1wcm9ncmVzcy1iYXIge1xyXG4gIG1hcmdpbjogMTBweCAwcHg7XHJcbn1cclxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = ("* {\r\n  font-family: 'rubik';\r\n}\r\n\r\n.mat-form-field {\r\n  text-align: right;\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.option-btn {\r\n  margin-left: 10px;\r\n  height: 39px;\r\n  border-radius: 5px;\r\n  border: none;\r\n  font-weight: 500;\r\n  font-size: large;\r\n  transition: color .15s ease-in-out, background-color .15s ease-in-out;\r\n}\r\n\r\n#login-button {\r\n  margin-top: 10px;\r\n  background: #ffa800;\r\n  color: white;\r\n}\r\n\r\n#login-button:enabled:hover {\r\n  background: #e69900;\r\n  color: white;\r\n}\r\n\r\n#login-button:enabled:active {\r\n  background: #db9200;\r\n  color: white;\r\n}\r\n\r\n#login-button:disabled {\r\n  background: #e0e0e0;\r\n  color: rgb(102, 102, 102);\r\n}\r\n\r\na {\r\n  /* font-family: 'rubik'; */\r\n  font-size: 1rem;\r\n}\r\n\r\nmat-progress-bar {\r\n  margin: 10px 0px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWFpbi1zY3JlZW4vdXNlci1yZWxhdGVkL3VzZXItcmVsYXRlZC1kaWFsb2cvcmVnaXN0ZXIvcmVnaXN0ZXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLG9CQUFvQjtBQUN0Qjs7QUFFQTtFQUNFLGlCQUFpQjtFQUNqQixrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxpQkFBaUI7RUFDakIsWUFBWTtFQUNaLGtCQUFrQjtFQUNsQixZQUFZO0VBQ1osZ0JBQWdCO0VBQ2hCLGdCQUFnQjtFQUNoQixxRUFBcUU7QUFDdkU7O0FBRUE7RUFDRSxnQkFBZ0I7RUFDaEIsbUJBQW1CO0VBQ25CLFlBQVk7QUFDZDs7QUFFQTtFQUNFLG1CQUFtQjtFQUNuQixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxtQkFBbUI7RUFDbkIsWUFBWTtBQUNkOztBQUVBO0VBQ0UsbUJBQW1CO0VBQ25CLHlCQUF5QjtBQUMzQjs7QUFFQTtFQUNFLDBCQUEwQjtFQUMxQixlQUFlO0FBQ2pCOztBQUVBO0VBQ0UsZ0JBQWdCO0FBQ2xCIiwiZmlsZSI6InNyYy9hcHAvbWFpbi1zY3JlZW4vdXNlci1yZWxhdGVkL3VzZXItcmVsYXRlZC1kaWFsb2cvcmVnaXN0ZXIvcmVnaXN0ZXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIioge1xyXG4gIGZvbnQtZmFtaWx5OiAncnViaWsnO1xyXG59XHJcblxyXG4ubWF0LWZvcm0tZmllbGQge1xyXG4gIHRleHQtYWxpZ246IHJpZ2h0O1xyXG4gIG1hcmdpbi1ib3R0b206IDVweDtcclxufVxyXG5cclxuLm9wdGlvbi1idG4ge1xyXG4gIG1hcmdpbi1sZWZ0OiAxMHB4O1xyXG4gIGhlaWdodDogMzlweDtcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGZvbnQtd2VpZ2h0OiA1MDA7XHJcbiAgZm9udC1zaXplOiBsYXJnZTtcclxuICB0cmFuc2l0aW9uOiBjb2xvciAuMTVzIGVhc2UtaW4tb3V0LCBiYWNrZ3JvdW5kLWNvbG9yIC4xNXMgZWFzZS1pbi1vdXQ7XHJcbn1cclxuXHJcbiNsb2dpbi1idXR0b24ge1xyXG4gIG1hcmdpbi10b3A6IDEwcHg7XHJcbiAgYmFja2dyb3VuZDogI2ZmYTgwMDtcclxuICBjb2xvcjogd2hpdGU7XHJcbn1cclxuXHJcbiNsb2dpbi1idXR0b246ZW5hYmxlZDpob3ZlciB7XHJcbiAgYmFja2dyb3VuZDogI2U2OTkwMDtcclxuICBjb2xvcjogd2hpdGU7XHJcbn1cclxuXHJcbiNsb2dpbi1idXR0b246ZW5hYmxlZDphY3RpdmUge1xyXG4gIGJhY2tncm91bmQ6ICNkYjkyMDA7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG59XHJcblxyXG4jbG9naW4tYnV0dG9uOmRpc2FibGVkIHtcclxuICBiYWNrZ3JvdW5kOiAjZTBlMGUwO1xyXG4gIGNvbG9yOiByZ2IoMTAyLCAxMDIsIDEwMik7XHJcbn1cclxuXHJcbmEge1xyXG4gIC8qIGZvbnQtZmFtaWx5OiAncnViaWsnOyAqL1xyXG4gIGZvbnQtc2l6ZTogMXJlbTtcclxufVxyXG5cclxubWF0LXByb2dyZXNzLWJhciB7XHJcbiAgbWFyZ2luOiAxMHB4IDBweDtcclxufVxyXG4iXX0= */");
 
 /***/ }),
 
@@ -124,7 +134,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"d-flex flex-column\">\r\n  <div>\r\n    <div [ngClass]=\"{'flip-box-inner': true, 'flip': flipped}\">\r\n      <div class=\"flip-box-front\">\r\n        <img src=\"/assets/Mentor Cards Back.png\" [ngClass]=\"{'img-unselected': !selected, 'img-selected': selected}\"\r\n          (contextmenu)=\"onRightClick();\">\r\n      </div>\r\n      <div class=\"flip-box-back\">\r\n        <img (load)=\"imgLoaded()\" [ngClass]=\"{'img-unselected': !selected, 'img-selected': selected}\"\r\n          src={{cardContent.imgUrl}} data-src={{cardContent.imgUrl}} (contextmenu)=\"onRightClick();\">\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <!-- <img (load)=\"imgLoaded()\" [ngClass]=\"{'img-unselected': !selected, 'img-selected': selected}\" src={{cardContent.imgUrl}}> -->\r\n  <span *ngIf=\"index\" class=\"badge badge-pill badge-light\">{{index}}</span>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"d-flex flex-column\">\n  <div>\n    <div [ngClass]=\"{'flip-box-inner': true, 'flip': flipped}\">\n      <div class=\"flip-box-front\">\n        <img src=\"/assets/Mentor Cards Back.png\" [ngClass]=\"{'img-unselected': !selected, 'img-selected': selected}\"\n          (contextmenu)=\"onRightClick();\">\n      </div>\n      <div class=\"flip-box-back\">\n        <img (load)=\"imgLoaded()\" [ngClass]=\"{'img-unselected': !selected, 'img-selected': selected}\"\n          src={{cardContent.imgUrl}} data-src={{cardContent.imgUrl}} (contextmenu)=\"onRightClick();\">\n      </div>\n    </div>\n  </div>\n  <!-- <img (load)=\"imgLoaded()\" [ngClass]=\"{'img-unselected': !selected, 'img-selected': selected}\" src={{cardContent.imgUrl}}> -->\n  <span *ngIf=\"index\" class=\"badge badge-pill badge-light\">{{index}}</span>\n</div>\n");
 
 /***/ }),
 
@@ -200,45 +210,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "6GJD":
-/*!***********************************************************************************************************!*\
-  !*** ./src/app/main-screen/user-related/user-related-dialog/forgot-password/forgot-password.component.ts ***!
-  \***********************************************************************************************************/
-/*! exports provided: ForgotPasswordComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ForgotPasswordComponent", function() { return ForgotPasswordComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _raw_loader_forgot_password_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./forgot-password.component.html */ "Swou");
-/* harmony import */ var _forgot_password_component_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./forgot-password.component.css */ "ywwK");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-
-
-
-
-var ForgotPasswordComponent = /** @class */ (function () {
-    function ForgotPasswordComponent() {
-    }
-    ForgotPasswordComponent.prototype.ngOnInit = function () {
-    };
-    ForgotPasswordComponent.ctorParameters = function () { return []; };
-    ForgotPasswordComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
-            selector: 'app-forgot-password',
-            template: _raw_loader_forgot_password_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
-            styles: [_forgot_password_component_css__WEBPACK_IMPORTED_MODULE_2__["default"]]
-        }),
-        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
-    ], ForgotPasswordComponent);
-    return ForgotPasswordComponent;
-}());
-
-
-
-/***/ }),
-
 /***/ "6u/D":
 /*!****************************************************************************************!*\
   !*** ./src/app/main-screen/user-related/user-related-dialog/login/login.component.css ***!
@@ -248,7 +219,7 @@ var ForgotPasswordComponent = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("* {\r\n  font-family: 'rubik';\r\n}\r\n\r\n.mat-form-field {\r\n  text-align: right;\r\n}\r\n\r\n.option-btn {\r\n  margin-left: 10px;\r\n  height: 39px;\r\n  border-radius: 5px;\r\n  border: none;\r\n  font-weight: 500;\r\n  font-size: large;\r\n  transition: color .15s ease-in-out, background-color .15s ease-in-out;\r\n}\r\n\r\n#login-button {\r\n  background: #ffa800;\r\n  color: white;\r\n}\r\n\r\n#login-button:enabled:hover {\r\n  background: #e69900;\r\n  color: white;\r\n}\r\n\r\n#login-button:enabled:active {\r\n  background: #db9200;\r\n  color: white;\r\n}\r\n\r\n#login-button:disabled {\r\n  background: #e0e0e0;\r\n  color: rgb(102, 102, 102);\r\n}\r\n\r\na {\r\n  /* font-family: 'rubik'; */\r\n  font-size: 1rem;\r\n}\r\n\r\nmat-progress-bar {\r\n    margin: 10px 0px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWFpbi1zY3JlZW4vdXNlci1yZWxhdGVkL3VzZXItcmVsYXRlZC1kaWFsb2cvbG9naW4vbG9naW4uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLG9CQUFvQjtBQUN0Qjs7QUFFQTtFQUNFLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFLGlCQUFpQjtFQUNqQixZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsZ0JBQWdCO0VBQ2hCLHFFQUFxRTtBQUN2RTs7QUFFQTtFQUNFLG1CQUFtQjtFQUNuQixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxtQkFBbUI7RUFDbkIsWUFBWTtBQUNkOztBQUVBO0VBQ0UsbUJBQW1CO0VBQ25CLFlBQVk7QUFDZDs7QUFFQTtFQUNFLG1CQUFtQjtFQUNuQix5QkFBeUI7QUFDM0I7O0FBRUE7RUFDRSwwQkFBMEI7RUFDMUIsZUFBZTtBQUNqQjs7QUFFQTtJQUNJLGdCQUFnQjtBQUNwQiIsImZpbGUiOiJzcmMvYXBwL21haW4tc2NyZWVuL3VzZXItcmVsYXRlZC91c2VyLXJlbGF0ZWQtZGlhbG9nL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIqIHtcclxuICBmb250LWZhbWlseTogJ3J1YmlrJztcclxufVxyXG5cclxuLm1hdC1mb3JtLWZpZWxkIHtcclxuICB0ZXh0LWFsaWduOiByaWdodDtcclxufVxyXG5cclxuLm9wdGlvbi1idG4ge1xyXG4gIG1hcmdpbi1sZWZ0OiAxMHB4O1xyXG4gIGhlaWdodDogMzlweDtcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGZvbnQtd2VpZ2h0OiA1MDA7XHJcbiAgZm9udC1zaXplOiBsYXJnZTtcclxuICB0cmFuc2l0aW9uOiBjb2xvciAuMTVzIGVhc2UtaW4tb3V0LCBiYWNrZ3JvdW5kLWNvbG9yIC4xNXMgZWFzZS1pbi1vdXQ7XHJcbn1cclxuXHJcbiNsb2dpbi1idXR0b24ge1xyXG4gIGJhY2tncm91bmQ6ICNmZmE4MDA7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG59XHJcblxyXG4jbG9naW4tYnV0dG9uOmVuYWJsZWQ6aG92ZXIge1xyXG4gIGJhY2tncm91bmQ6ICNlNjk5MDA7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG59XHJcblxyXG4jbG9naW4tYnV0dG9uOmVuYWJsZWQ6YWN0aXZlIHtcclxuICBiYWNrZ3JvdW5kOiAjZGI5MjAwO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxufVxyXG5cclxuI2xvZ2luLWJ1dHRvbjpkaXNhYmxlZCB7XHJcbiAgYmFja2dyb3VuZDogI2UwZTBlMDtcclxuICBjb2xvcjogcmdiKDEwMiwgMTAyLCAxMDIpO1xyXG59XHJcblxyXG5hIHtcclxuICAvKiBmb250LWZhbWlseTogJ3J1YmlrJzsgKi9cclxuICBmb250LXNpemU6IDFyZW07XHJcbn1cclxuXHJcbm1hdC1wcm9ncmVzcy1iYXIge1xyXG4gICAgbWFyZ2luOiAxMHB4IDBweDtcclxufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("* {\r\n  font-family: 'rubik';\r\n}\r\n\r\n.mat-form-field {\r\n  text-align: right;\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.option-btn {\r\n  margin-left: 10px;\r\n  height: 39px;\r\n  border-radius: 5px;\r\n  border: none;\r\n  font-weight: 500;\r\n  font-size: large;\r\n  transition: color .15s ease-in-out, background-color .15s ease-in-out;\r\n}\r\n\r\n#login-button {\r\n  background: #ffa800;\r\n  color: white;\r\n}\r\n\r\n#login-button:enabled:hover {\r\n  background: #e69900;\r\n  color: white;\r\n}\r\n\r\n#login-button:enabled:active {\r\n  background: #db9200;\r\n  color: white;\r\n}\r\n\r\n#login-button:disabled {\r\n  background: #e0e0e0;\r\n  color: rgb(102, 102, 102);\r\n}\r\n\r\na {\r\n  /* font-family: 'rubik'; */\r\n  font-size: 1rem;\r\n}\r\n\r\nmat-progress-bar {\r\n    margin: 10px 0px;\r\n}\r\n\r\n#logInForm {\r\n  transition: opacity .2s; \r\n}\r\n\r\n#forgotPasswordForm {\r\n  transition: opacity .2s; \r\n}\r\n\r\n/* input {\r\n  transition: font-size .2s; \r\n}\r\n\r\ninput:focus {\r\n  font-size: 110%;\r\n} */\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWFpbi1zY3JlZW4vdXNlci1yZWxhdGVkL3VzZXItcmVsYXRlZC1kaWFsb2cvbG9naW4vbG9naW4uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLG9CQUFvQjtBQUN0Qjs7QUFFQTtFQUNFLGlCQUFpQjtFQUNqQixrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxpQkFBaUI7RUFDakIsWUFBWTtFQUNaLGtCQUFrQjtFQUNsQixZQUFZO0VBQ1osZ0JBQWdCO0VBQ2hCLGdCQUFnQjtFQUNoQixxRUFBcUU7QUFDdkU7O0FBRUE7RUFDRSxtQkFBbUI7RUFDbkIsWUFBWTtBQUNkOztBQUVBO0VBQ0UsbUJBQW1CO0VBQ25CLFlBQVk7QUFDZDs7QUFFQTtFQUNFLG1CQUFtQjtFQUNuQixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxtQkFBbUI7RUFDbkIseUJBQXlCO0FBQzNCOztBQUVBO0VBQ0UsMEJBQTBCO0VBQzFCLGVBQWU7QUFDakI7O0FBRUE7SUFDSSxnQkFBZ0I7QUFDcEI7O0FBRUE7RUFDRSx1QkFBdUI7QUFDekI7O0FBRUE7RUFDRSx1QkFBdUI7QUFDekI7O0FBRUE7Ozs7OztHQU1HIiwiZmlsZSI6InNyYy9hcHAvbWFpbi1zY3JlZW4vdXNlci1yZWxhdGVkL3VzZXItcmVsYXRlZC1kaWFsb2cvbG9naW4vbG9naW4uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIioge1xyXG4gIGZvbnQtZmFtaWx5OiAncnViaWsnO1xyXG59XHJcblxyXG4ubWF0LWZvcm0tZmllbGQge1xyXG4gIHRleHQtYWxpZ246IHJpZ2h0O1xyXG4gIG1hcmdpbi1ib3R0b206IDVweDtcclxufVxyXG5cclxuLm9wdGlvbi1idG4ge1xyXG4gIG1hcmdpbi1sZWZ0OiAxMHB4O1xyXG4gIGhlaWdodDogMzlweDtcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGZvbnQtd2VpZ2h0OiA1MDA7XHJcbiAgZm9udC1zaXplOiBsYXJnZTtcclxuICB0cmFuc2l0aW9uOiBjb2xvciAuMTVzIGVhc2UtaW4tb3V0LCBiYWNrZ3JvdW5kLWNvbG9yIC4xNXMgZWFzZS1pbi1vdXQ7XHJcbn1cclxuXHJcbiNsb2dpbi1idXR0b24ge1xyXG4gIGJhY2tncm91bmQ6ICNmZmE4MDA7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG59XHJcblxyXG4jbG9naW4tYnV0dG9uOmVuYWJsZWQ6aG92ZXIge1xyXG4gIGJhY2tncm91bmQ6ICNlNjk5MDA7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG59XHJcblxyXG4jbG9naW4tYnV0dG9uOmVuYWJsZWQ6YWN0aXZlIHtcclxuICBiYWNrZ3JvdW5kOiAjZGI5MjAwO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxufVxyXG5cclxuI2xvZ2luLWJ1dHRvbjpkaXNhYmxlZCB7XHJcbiAgYmFja2dyb3VuZDogI2UwZTBlMDtcclxuICBjb2xvcjogcmdiKDEwMiwgMTAyLCAxMDIpO1xyXG59XHJcblxyXG5hIHtcclxuICAvKiBmb250LWZhbWlseTogJ3J1YmlrJzsgKi9cclxuICBmb250LXNpemU6IDFyZW07XHJcbn1cclxuXHJcbm1hdC1wcm9ncmVzcy1iYXIge1xyXG4gICAgbWFyZ2luOiAxMHB4IDBweDtcclxufVxyXG5cclxuI2xvZ0luRm9ybSB7XHJcbiAgdHJhbnNpdGlvbjogb3BhY2l0eSAuMnM7IFxyXG59XHJcblxyXG4jZm9yZ290UGFzc3dvcmRGb3JtIHtcclxuICB0cmFuc2l0aW9uOiBvcGFjaXR5IC4yczsgXHJcbn1cclxuXHJcbi8qIGlucHV0IHtcclxuICB0cmFuc2l0aW9uOiBmb250LXNpemUgLjJzOyBcclxufVxyXG5cclxuaW5wdXQ6Zm9jdXMge1xyXG4gIGZvbnQtc2l6ZTogMTEwJTtcclxufSAqLyJdfQ== */");
 
 /***/ }),
 
@@ -267,22 +238,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _login_component_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./login.component.css */ "6u/D");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+/* harmony import */ var src_app_Services_user_auth_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/Services/user-auth.service */ "u+o5");
+
 
 
 
 
 
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(formBuilder) {
+    function LoginComponent(formBuilder, userAuthService) {
         this.formBuilder = formBuilder;
+        this.userAuthService = userAuthService;
+        this.loggedIn = new _angular_core__WEBPACK_IMPORTED_MODULE_3__["EventEmitter"]();
         // emailRegex = '^[A-Za-z0-9._%+-]+@intel.com$';
         this.loginForm = this.formBuilder.group({
             username: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].email]],
-            password: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required]
+            password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(8)]]
         });
         this.forgotPasswordForm = this.formBuilder.group({
             username: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].email]],
+            confirmationCode: ['',],
+            newPassword: ['',],
         });
+        this.newPasswordPhase = false;
         this.hidePW = true;
         this.login = true;
         this.showLoading = false;
@@ -295,27 +273,144 @@ var LoginComponent = /** @class */ (function () {
     LoginComponent.prototype.resetForms = function () {
         this.loginForm.reset();
         this.forgotPasswordForm.reset();
+        this.newPasswordPhaseDisable();
         this.login = true;
     };
     LoginComponent.prototype.onLoginSubmit = function () {
+        var _this = this;
         this.showHideLoading();
+        this.loginForm.disable();
+        var user = {
+            "username": this.loginForm.get("username").value,
+            "password": this.loginForm.get("password").value,
+        };
+        this.userAuthService.logIn(user).then(function (userData) {
+            // console.log(userData);
+            _this.showHideLoading();
+            _this.userAuthService._snackBar.open('התחברות מוצלחת, ברוך הבא ' + userData.attributes.name + '!', '', {
+                duration: 3000,
+                panelClass: ['rtl-snackbar']
+            });
+            _this.userAuthService.loggedIn(userData);
+            _this.loggedIn.emit();
+        })
+            .catch(function (err) {
+            _this.showHideLoading();
+            _this.loginForm.enable();
+            console.log(err);
+            if (err.code === 'UserNotConfirmedException') {
+                _this.loginForm.controls['username'].setErrors({ 'userNotConfirmed': true });
+            }
+            if (err.code === 'UserNotFoundException') {
+                _this.loginForm.controls['username'].setErrors({ 'userNotFound': true });
+            }
+            if (err.code === "NotAuthorizedException") {
+                _this.loginForm.controls['password'].setErrors({ 'usernamePwWrong': true });
+            }
+        });
     };
     LoginComponent.prototype.onForgotPasswordSubmit = function () {
+        this.forgotPasswordForm.disable();
         this.showHideLoading();
+        //After email confirm
+        if (this.newPasswordPhase) {
+            this.forgotPasswordReset();
+        }
+        //confirm email
+        else {
+            this.forgotPasswordVarifyEmail();
+        }
+    };
+    LoginComponent.prototype.forgotPasswordVarifyEmail = function () {
+        var _this = this;
+        var user = this.forgotPasswordForm.get("username").value;
+        this.userAuthService.forgotPasswordVarifyEmail(user).then(function (res) {
+            console.log(res);
+            _this.forgotPasswordForm.enable();
+            _this.showHideLoading();
+            _this.newPasswordPhaseEnable();
+        })
+            .catch(function (err) {
+            console.log(err);
+            _this.forgotPasswordErrorHandle(err);
+        });
+    };
+    LoginComponent.prototype.forgotPasswordReset = function () {
+        var _this = this;
+        var user = this.forgotPasswordForm.get("username").value;
+        var confirmationCode = this.forgotPasswordForm.get("confirmationCode").value;
+        var newPassword = this.forgotPasswordForm.get("newPassword").value;
+        this.userAuthService.forgotPasswordReset(user, confirmationCode, newPassword).then(function (res) {
+            console.log(res);
+            _this.forgotPasswordForm.enable();
+            _this.showHideLoading();
+            _this.newPasswordPhaseDisable();
+            _this.login = true;
+            _this.userAuthService._snackBar.open('סיסמתך שונתה בהצלחה. יש לבצע התחברות', '', {
+                duration: 3000,
+                panelClass: ['rtl-snackbar']
+            });
+        })
+            .catch(function (err) {
+            console.log(err);
+            _this.forgotPasswordErrorHandle(err);
+        });
+    };
+    /**
+     * Handle any error for the forgotPassword form
+     * @param err
+     */
+    LoginComponent.prototype.forgotPasswordErrorHandle = function (err) {
+        this.forgotPasswordForm.enable();
+        this.showHideLoading();
+        if (err.code === 'LimitExceededException') {
+            this.forgotPasswordForm.controls['username'].setErrors({ 'limitExceeded': true });
+        }
+        if (err.code === 'UserNotFoundException') {
+            this.forgotPasswordForm.controls['username'].setErrors({ 'userNotFound': true });
+        }
+        if (err.code === "CodeMismatchException") {
+            this.forgotPasswordForm.controls['confirmationCode'].setErrors({ 'codeMismatch': true });
+        }
+        if (err.code === 'InvalidPasswordException') {
+            this.forgotPasswordForm.controls['newPassword'].setErrors({ 'badPassword': true });
+        }
+    };
+    /**
+     * After email checked, Initiate password reset phase
+     */
+    LoginComponent.prototype.newPasswordPhaseEnable = function () {
+        this.forgotPasswordForm.controls.username.disable();
+        this.newPasswordPhase = true;
+        this.forgotPasswordForm.controls.confirmationCode.setValidators([_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required]);
+        this.forgotPasswordForm.controls.newPassword.setValidators([_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(8)]);
+    };
+    /**
+     * Clear reset password fields
+     */
+    LoginComponent.prototype.newPasswordPhaseDisable = function () {
+        this.forgotPasswordForm.controls.username.enable();
+        this.newPasswordPhase = false;
+        this.forgotPasswordForm.controls.confirmationCode.clearValidators();
+        this.forgotPasswordForm.controls.newPassword.clearValidators();
     };
     LoginComponent.prototype.showHideLoading = function () {
         this.showLoading = !this.showLoading;
     };
     LoginComponent.ctorParameters = function () { return [
-        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] }
+        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] },
+        { type: src_app_Services_user_auth_service__WEBPACK_IMPORTED_MODULE_5__["UserAuthService"] }
     ]; };
+    LoginComponent.propDecorators = {
+        loggedIn: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Output"] }]
+    };
     LoginComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
             selector: 'app-login',
             template: _raw_loader_login_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
             styles: [_login_component_css__WEBPACK_IMPORTED_MODULE_2__["default"]]
         }),
-        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"]])
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"], src_app_Services_user_auth_service__WEBPACK_IMPORTED_MODULE_5__["UserAuthService"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -333,7 +428,7 @@ var LoginComponent = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("  <h1>תיאור חפיסה</h1>\r\n  <p>קטגוריות: {{packInfo.categories}}</p>\r\n  <p>תגיות: {{packInfo.tags}}</p>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("  <h1>תיאור חפיסה</h1>\n  <p>קטגוריות: {{packInfo.categories}}</p>\n  <p>תגיות: {{packInfo.tags}}</p>\n");
 
 /***/ }),
 
@@ -598,7 +693,7 @@ var environment = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>about-page works!</p>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<p>about-page works!</p>\n");
 
 /***/ }),
 
@@ -747,7 +842,7 @@ var TooltipListViewPipe = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<form [formGroup]=\"registerForm\" (ngSubmit)=\"onRegisterSubmit()\">\r\n  <div class=\"d-flex flex-column\">\r\n    <mat-form-field>\r\n      <mat-label>שם פרטי</mat-label>\r\n      <input autocomplete=\"off\" formControlName=\"name\" matInput>\r\n    </mat-form-field>\r\n    <mat-form-field>\r\n      <mat-label>שם משפחה</mat-label>\r\n      <input autocomplete=\"off\" formControlName=\"lastName\" matInput>\r\n    </mat-form-field>\r\n    <mat-form-field>\r\n      <mat-label>אימייל</mat-label>\r\n      <input autocomplete=\"off\" formControlName=\"username\" matInput>\r\n    </mat-form-field>\r\n    <mat-form-field>\r\n      <mat-label>סיסמא</mat-label>\r\n      <input autocomplete=\"off\" (keyup)=\"test()\" formControlName=\"password\" matInput\r\n        [type]=\"hidePW ? 'password' : 'text'\">\r\n      <button mat-icon-button matSuffix (click)=\"hidePW = !hidePW\" [attr.aria-label]=\"'Hide password'\"\r\n        [attr.aria-pressed]=\"hidePW\">\r\n        <mat-icon style=\"font-family: 'Material Icons';\">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\r\n      </button>\r\n    </mat-form-field>\r\n    <button type=\"submit\" class=\"option-btn\" id=\"login-button\" [disabled]=\"!registerForm.valid\">הרשם</button>\r\n  </div>\r\n</form>\r\n<mat-progress-bar [ngStyle]=\"{'visibility': showLoading ? 'visible' : 'hidden'}\" mode=\"query\"></mat-progress-bar>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<form [formGroup]=\"registerForm\" (ngSubmit)=\"onRegisterSubmit()\">\n  <div class=\"d-flex flex-column\">\n    <mat-form-field>\n      <mat-label>שם פרטי</mat-label>\n      <input autocomplete=\"off\" formControlName=\"name\" matInput>\n      <mat-hint>עברית\\אנגלית</mat-hint>\n    </mat-form-field>\n    <mat-form-field>\n      <mat-label>שם משפחה</mat-label>\n      <input autocomplete=\"off\" formControlName=\"lastName\" matInput>\n      <mat-hint>עברית\\אנגלית</mat-hint>\n    </mat-form-field>\n    <mat-form-field>\n      <mat-label>אימייל</mat-label>\n      <input autocomplete=\"off\" formControlName=\"username\" matInput>\n      <mat-error *ngIf=\"registerForm.controls.username.errors?.emailAlreadyExists\">מייל קיים. נא להשתמש באחר</mat-error>\n    </mat-form-field>\n    <mat-form-field>\n      <mat-label>סיסמא</mat-label>\n      <input autocomplete=\"off\" formControlName=\"password\" matInput [type]=\"hidePW ? 'password' : 'text'\"\n      onkeypress=\"return (event.charCode >= 33 && event.charCode <= 126)\">\n      <mat-error *ngIf=\"registerForm.controls.password.errors?.badPassword\">סיסמא לא חוקית, נסו שנית</mat-error>\n      <mat-hint>8 ספרות לפחות, חייב להכיל ספרה, אות קטנה ואות גדולה (באנגלית)</mat-hint>\n      <button type=\"button\" mat-icon-button matSuffix (click)=\"hidePW = !hidePW\">\n        <mat-icon style=\"font-family: 'Material Icons';\">{{hidePW ? 'visibility_off' : 'visibility'}}</mat-icon>\n      </button>\n    </mat-form-field>\n    <button type=\"submit\" class=\"option-btn\" id=\"login-button\" [disabled]=\"!registerForm.valid\">הרשם</button>\n  </div>\n</form>\n<mat-progress-bar [ngStyle]=\"{'visibility': showLoading ? 'visible' : 'hidden'}\" mode=\"query\"></mat-progress-bar>\n");
 
 /***/ }),
 
@@ -760,7 +855,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>shopping-cart-page works!</p>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<p>shopping-cart-page works!</p>\n");
 
 /***/ }),
 
@@ -773,7 +868,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("  <app-nav></app-nav>\r\n\r\n  <div class=\"overlay\" *ngIf=\"showSpinner\">\r\n    <div class=\"spinner-wrapper\">\r\n      <app-overlay-spinner></app-overlay-spinner>\r\n    </div>\r\n  </div>\r\n\r\n  <router-outlet></router-outlet>\r\n  <!-- <app-bottom-bar></app-bottom-bar> -->\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("  <app-nav></app-nav>\n\n  <div class=\"overlay\" *ngIf=\"showSpinner\">\n    <div class=\"spinner-wrapper\">\n      <app-overlay-spinner></app-overlay-spinner>\n    </div>\n  </div>\n\n  <router-outlet></router-outlet>\n  <!-- <app-bottom-bar></app-bottom-bar> -->\n");
 
 /***/ }),
 
@@ -877,7 +972,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"logo\">\r\n  <img src=\"/assets/Logo.png\">\r\n</div>\r\n\r\n<nav class=\"nav navbar-light align-items-center justify-content-center sticky-top\" style=\"background-color: white;\">\r\n  <div id=\"nav-buttons\">\r\n    <!-- <button type=\"button\" class=\"btn btn-light\">\r\n      <mat-icon matBadge=\"15\" clsas=\"btn-icon\" routerLink=\"/shopping-cart-page\">shopping_cart</mat-icon>\r\n    </button> -->\r\n    <button type=\"button\" class=\"btn btn-light\" (click)=loginRegister()>התחברות\\הרשמה</button>\r\n    <button type=\"button\" class=\"btn btn-light\" routerLink=\"/home-page\">מסך הבית</button>\r\n    <!-- <button type=\"button\" class=\"btn btn-light\" routerLink=\"/about-page\">עלינו</button> -->\r\n    <button type=\"button\" class=\"btn btn-light\">עלינו</button>\r\n  </div>\r\n  <!-- <div id=\"logo\">\r\n    <h1><b>Mentor</b>Cards</h1>\r\n  </div> -->\r\n</nav>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"logo\">\r\n  <img src=\"/assets/Logo.png\">\r\n</div>\r\n\r\n<nav class=\"nav navbar-light align-items-center justify-content-center sticky-top\" style=\"background-color: white;\">\r\n  <!-- <div id=\"log-in-buttons\">\r\n    <button *ngIf=\"loggedIn\" type=\"button\" class=\"btn btn-light login-button\" (click)=logout()>התנתק</button>\r\n    <button *ngIf=\"!loggedIn\" type=\"button\" class=\"btn btn-light login-button\" (click)=loginRegister()>התחברות\\הרשמה</button>\r\n  </div>-->\r\n  <div id=\"nav-buttons\">\r\n    <!-- <button type=\"button\" class=\"btn btn-light\">\r\n      <mat-icon matBadge=\"15\" clsas=\"btn-icon\" routerLink=\"/shopping-cart-page\">shopping_cart</mat-icon>\r\n    </button> -->\r\n    <button *ngIf=\"loggedIn\" type=\"button\" class=\"btn btn-light\" (click)=logout()>התנתק</button>\r\n    <button *ngIf=\"!loggedIn\" type=\"button\" class=\"btn btn-light\" (click)=loginRegister()>התחברות\\הרשמה</button>\r\n    <button type=\"button\" class=\"btn btn-light\" routerLink=\"/home-page\">מסך הבית</button>\r\n    <!-- <button type=\"button\" class=\"btn btn-light\" routerLink=\"/about-page\">עלינו</button> -->\r\n    <button type=\"button\" class=\"btn btn-light\">עלינו</button>\r\n  </div>\r\n  <!-- <div id=\"logo\">\r\n    <h1><b>Mentor</b>Cards</h1>\r\n  </div> -->\r\n</nav>\r\n");
 
 /***/ }),
 
@@ -930,20 +1025,7 @@ var Card = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- <div class=\"overlay\" *ngIf=\"showSpinner\">\r\n  <div class=\"spinner-wrapper\">\r\n    <app-overlay-spinner></app-overlay-spinner>\r\n  </div>\r\n</div> -->\r\n\r\n<mat-tab-group (selectedTabChange)=\"tabChanged($event)\" mat-align-tabs=\"center\" dynamicHeight>\r\n  <mat-tab label=\"התחברות\">\r\n    <!-- <ng-template matTabContent> -->\r\n    <app-login></app-login>\r\n    <!-- </ng-template> -->\r\n  </mat-tab>\r\n  <mat-tab label=\"הרשמה\">\r\n    <ng-template matTabContent>\r\n      <app-register></app-register>\r\n    </ng-template>\r\n  </mat-tab>\r\n</mat-tab-group>\r\n");
-
-/***/ }),
-
-/***/ "Swou":
-/*!***************************************************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/main-screen/user-related/user-related-dialog/forgot-password/forgot-password.component.html ***!
-  \***************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>forgot-password works!</p>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-tab-group [selectedIndex]=\"selectedTab\" (selectedTabChange)=\"tabChanged($event)\" mat-align-tabs=\"center\" dynamicHeight>\n  <mat-tab label=\"התחברות\">\n    <app-login (loggedIn)=\"loggedIn()\"></app-login>\n    <!-- <app-login></app-login> -->\n  </mat-tab>\n  <mat-tab label=\"הרשמה\">\n    <ng-template matTabContent>\n      <app-register (registered)=\"selectedTab = 0;\"></app-register>\n    </ng-template>\n  </mat-tab>\n</mat-tab-group>\n");
 
 /***/ }),
 
@@ -1007,7 +1089,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- Bootstrap -->\r\n<!-- CSS -->\r\n<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css\"\r\n  integrity=\"sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2\" crossorigin=\"anonymous\">\r\n<!-- jQuery and Bootstrap Bundle (includes Popper) -->\r\n<script src=\"https://code.jquery.com/jquery-3.5.1.slim.min.js\"\r\n  integrity=\"sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj\" crossorigin=\"anonymous\"></script>\r\n<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js\"\r\n  integrity=\"sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx\" crossorigin=\"anonymous\"></script>\r\n\r\n<!-- Flip Card Css\r\n    https://www.w3schools.com/howto/howto_css_flip_card.asp -->\r\n<!-- Deck CSS\r\n  https://codepen.io/pouretrebelle/pen/eYmeVjR -->\r\n\r\n<app-main-screen></app-main-screen>\r\n\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- Bootstrap -->\n<!-- CSS -->\n<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css\"\n  integrity=\"sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2\" crossorigin=\"anonymous\">\n<!-- jQuery and Bootstrap Bundle (includes Popper) -->\n<script src=\"https://code.jquery.com/jquery-3.5.1.slim.min.js\"\n  integrity=\"sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj\" crossorigin=\"anonymous\"></script>\n<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js\"\n  integrity=\"sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx\" crossorigin=\"anonymous\"></script>\n\n<!-- Flip Card Css\n    https://www.w3schools.com/howto/howto_css_flip_card.asp -->\n<!-- Deck CSS\n  https://codepen.io/pouretrebelle/pen/eYmeVjR -->\n\n<app-main-screen></app-main-screen>\n\n");
 
 /***/ }),
 
@@ -1139,19 +1221,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _register_component_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./register.component.css */ "1sQv");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+/* harmony import */ var src_app_Services_user_auth_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/Services/user-auth.service */ "u+o5");
+
 
 
 
 
 
 var RegisterComponent = /** @class */ (function () {
-    function RegisterComponent(formBuilder) {
+    function RegisterComponent(formBuilder, userAuthService) {
         this.formBuilder = formBuilder;
+        this.userAuthService = userAuthService;
+        this.registered = new _angular_core__WEBPACK_IMPORTED_MODULE_3__["EventEmitter"]();
+        // pwRegex = "/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/"
         this.registerForm = this.formBuilder.group({
             name: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
             lastName: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
             username: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].email]],
-            password: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
+            password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(8)]],
         });
         this.hidePW = true;
         this.showLoading = false;
@@ -1165,21 +1252,60 @@ var RegisterComponent = /** @class */ (function () {
         this.registerForm.reset();
     };
     RegisterComponent.prototype.onRegisterSubmit = function () {
+        var _this = this;
         this.showHideLoading();
+        this.registerForm.disable();
+        var newUser = {
+            "username": this.registerForm.get("username").value,
+            "password": this.registerForm.get("password").value,
+            attributes: {
+                "name": this.registerForm.get("name").value,
+                "family_name": this.registerForm.get("lastName").value
+            }
+        };
+        this.userAuthService.signUp(newUser)
+            .then(function (data) {
+            _this.showHideLoading();
+            _this.userAuthService._snackBar.open('.משתמש נוצר בהצלחה. הודעת אישור נשלחה למייל שלכם', '', {
+                duration: 5000,
+                panelClass: ['rtl-snackbar']
+            });
+            // this.registerForm.enable();
+            _this.registered.emit();
+        })
+            .catch(function (err) {
+            _this.showHideLoading();
+            // this.cardsService._snackBar.open('קרתה שגיאה, נסו שנית.', '', {
+            //   duration: 2500,
+            //   panelClass: ['rtl-error-snackbar']
+            // });
+            _this.registerForm.enable();
+            console.log(err);
+            if (err.code === 'UsernameExistsException') {
+                _this.registerForm.controls['username'].setErrors({ 'emailAlreadyExists': true });
+            }
+            if (err.code === 'InvalidPasswordException') {
+                _this.registerForm.controls['password'].setErrors({ 'badPassword': true });
+            }
+        });
     };
     RegisterComponent.prototype.showHideLoading = function () {
         this.showLoading = !this.showLoading;
     };
     RegisterComponent.ctorParameters = function () { return [
-        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] }
+        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] },
+        { type: src_app_Services_user_auth_service__WEBPACK_IMPORTED_MODULE_5__["UserAuthService"] }
     ]; };
+    RegisterComponent.propDecorators = {
+        registered: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Output"] }]
+    };
     RegisterComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
             selector: 'app-register',
             template: _raw_loader_register_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
             styles: [_register_component_css__WEBPACK_IMPORTED_MODULE_2__["default"]]
         }),
-        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"]])
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"], src_app_Services_user_auth_service__WEBPACK_IMPORTED_MODULE_5__["UserAuthService"]])
     ], RegisterComponent);
     return RegisterComponent;
 }());
@@ -1216,34 +1342,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Pages_pack_content_page_random_card_reveal_dialog_random_card_reveal_dialog_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Pages/pack-content-page/random-card-reveal-dialog/random-card-reveal-dialog.component */ "pLnJ");
 /* harmony import */ var _Pages_pack_content_page_transition_group__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./Pages/pack-content-page/transition-group */ "DuOs");
 /* harmony import */ var _main_screen_overlay_spinner_overlay_spinner_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./main-screen/overlay-spinner/overlay-spinner.component */ "WW1U");
-/* harmony import */ var _main_screen_user_related_user_related_dialog_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./main-screen/user-related/user-related-dialog/forgot-password/forgot-password.component */ "6GJD");
-/* harmony import */ var _main_screen_user_related_user_related_dialog_login_login_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./main-screen/user-related/user-related-dialog/login/login.component */ "8Pk3");
-/* harmony import */ var _main_screen_user_related_user_related_dialog_register_register_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./main-screen/user-related/user-related-dialog/register/register.component */ "Ytyx");
-/* harmony import */ var _main_screen_user_related_user_related_dialog_user_related_dialog_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./main-screen/user-related/user-related-dialog/user-related-dialog.component */ "/iCS");
-/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @angular/material/button */ "bTqV");
-/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @angular/material/icon */ "NFeN");
-/* harmony import */ var _angular_material_badge__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @angular/material/badge */ "TU8p");
-/* harmony import */ var _Pages_home_page_home_page_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./Pages/home-page/home-page.component */ "8emt");
-/* harmony import */ var _Pages_about_page_about_page_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./Pages/about-page/about-page.component */ "96ug");
-/* harmony import */ var _Pages_shopping_cart_page_shopping_cart_page_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./Pages/shopping-cart-page/shopping-cart-page.component */ "LSYR");
-/* harmony import */ var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @angular/material/snack-bar */ "dNgK");
-/* harmony import */ var _Pages_pack_content_page_pack_content_page_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./Pages/pack-content-page/pack-content-page.component */ "j3Qr");
-/* harmony import */ var _angular_material_divider__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! @angular/material/divider */ "f0Cb");
-/* harmony import */ var _angular_material_list__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @angular/material/list */ "MutI");
-/* harmony import */ var _angular_material_core__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! @angular/material/core */ "FKr1");
-/* harmony import */ var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! @angular/material/tooltip */ "Qu3c");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! @angular/material/dialog */ "0IaG");
-/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! @angular/material/input */ "qFsG");
-/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! @angular/material/form-field */ "kmnG");
-/* harmony import */ var _angular_material_tabs__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! @angular/material/tabs */ "wZkO");
-/* harmony import */ var _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! @angular/material/progress-bar */ "bv9b");
+/* harmony import */ var _main_screen_user_related_user_related_dialog_login_login_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./main-screen/user-related/user-related-dialog/login/login.component */ "8Pk3");
+/* harmony import */ var _main_screen_user_related_user_related_dialog_register_register_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./main-screen/user-related/user-related-dialog/register/register.component */ "Ytyx");
+/* harmony import */ var _main_screen_user_related_user_related_dialog_user_related_dialog_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./main-screen/user-related/user-related-dialog/user-related-dialog.component */ "/iCS");
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/material/button */ "bTqV");
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @angular/material/icon */ "NFeN");
+/* harmony import */ var _angular_material_badge__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @angular/material/badge */ "TU8p");
+/* harmony import */ var _Pages_home_page_home_page_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./Pages/home-page/home-page.component */ "8emt");
+/* harmony import */ var _Pages_about_page_about_page_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./Pages/about-page/about-page.component */ "96ug");
+/* harmony import */ var _Pages_shopping_cart_page_shopping_cart_page_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./Pages/shopping-cart-page/shopping-cart-page.component */ "LSYR");
+/* harmony import */ var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! @angular/material/snack-bar */ "dNgK");
+/* harmony import */ var _Pages_pack_content_page_pack_content_page_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./Pages/pack-content-page/pack-content-page.component */ "j3Qr");
+/* harmony import */ var _angular_material_divider__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! @angular/material/divider */ "f0Cb");
+/* harmony import */ var _angular_material_list__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! @angular/material/list */ "MutI");
+/* harmony import */ var _angular_material_core__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @angular/material/core */ "FKr1");
+/* harmony import */ var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! @angular/material/tooltip */ "Qu3c");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! @angular/material/dialog */ "0IaG");
+/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! @angular/material/input */ "qFsG");
+/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! @angular/material/form-field */ "kmnG");
+/* harmony import */ var _angular_material_tabs__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! @angular/material/tabs */ "wZkO");
+/* harmony import */ var _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! @angular/material/progress-bar */ "bv9b");
 
 
 
-
-// import Amplify from 'aws-amplify';
-// import awsconfig from './aws-exports'; 
-// Amplify.configure(awsconfig);
 
 
 
@@ -1293,20 +1414,19 @@ var AppModule = /** @class */ (function () {
                 _main_screen_main_screen_component__WEBPACK_IMPORTED_MODULE_8__["MainScreenComponent"],
                 _main_screen_nav_nav_component__WEBPACK_IMPORTED_MODULE_9__["NavComponent"],
                 _main_screen_bottom_bar_bottom_bar_component__WEBPACK_IMPORTED_MODULE_10__["BottomBarComponent"],
-                _Pages_home_page_home_page_component__WEBPACK_IMPORTED_MODULE_25__["HomePageComponent"],
-                _Pages_about_page_about_page_component__WEBPACK_IMPORTED_MODULE_26__["AboutPageComponent"],
-                _Pages_shopping_cart_page_shopping_cart_page_component__WEBPACK_IMPORTED_MODULE_27__["ShoppingCartPageComponent"],
-                _Pages_pack_content_page_pack_content_page_component__WEBPACK_IMPORTED_MODULE_29__["PackContentPageComponent"],
+                _Pages_home_page_home_page_component__WEBPACK_IMPORTED_MODULE_24__["HomePageComponent"],
+                _Pages_about_page_about_page_component__WEBPACK_IMPORTED_MODULE_25__["AboutPageComponent"],
+                _Pages_shopping_cart_page_shopping_cart_page_component__WEBPACK_IMPORTED_MODULE_26__["ShoppingCartPageComponent"],
+                _Pages_pack_content_page_pack_content_page_component__WEBPACK_IMPORTED_MODULE_28__["PackContentPageComponent"],
                 _Shared_Components_Pipes_tooltip_list_view_pipe__WEBPACK_IMPORTED_MODULE_13__["TooltipListViewPipe"],
                 _Pages_pack_content_page_cards_reveal_dialog_cards_reveal_dialog_component__WEBPACK_IMPORTED_MODULE_14__["CardsRevealDialogComponent"],
                 _main_screen_overlay_spinner_overlay_spinner_component__WEBPACK_IMPORTED_MODULE_17__["OverlaySpinnerComponent"],
                 _Pages_pack_content_page_random_card_reveal_dialog_random_card_reveal_dialog_component__WEBPACK_IMPORTED_MODULE_15__["RandomCardRevealDialogComponent"],
                 _Pages_pack_content_page_transition_group__WEBPACK_IMPORTED_MODULE_16__["TransitionGroupComponent"],
                 _Pages_pack_content_page_transition_group__WEBPACK_IMPORTED_MODULE_16__["TransitionGroupItemDirective"],
-                _main_screen_user_related_user_related_dialog_login_login_component__WEBPACK_IMPORTED_MODULE_19__["LoginComponent"],
-                _main_screen_user_related_user_related_dialog_register_register_component__WEBPACK_IMPORTED_MODULE_20__["RegisterComponent"],
-                _main_screen_user_related_user_related_dialog_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_18__["ForgotPasswordComponent"],
-                _main_screen_user_related_user_related_dialog_user_related_dialog_component__WEBPACK_IMPORTED_MODULE_21__["UserRelatedDialogComponent"]
+                _main_screen_user_related_user_related_dialog_login_login_component__WEBPACK_IMPORTED_MODULE_18__["LoginComponent"],
+                _main_screen_user_related_user_related_dialog_register_register_component__WEBPACK_IMPORTED_MODULE_19__["RegisterComponent"],
+                _main_screen_user_related_user_related_dialog_user_related_dialog_component__WEBPACK_IMPORTED_MODULE_20__["UserRelatedDialogComponent"]
             ],
             imports: [
                 // MDBBootstrapModule.forRoot(),
@@ -1317,23 +1437,23 @@ var AppModule = /** @class */ (function () {
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_12__["BrowserAnimationsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_11__["FormsModule"],
                 //Material
-                _angular_material_button__WEBPACK_IMPORTED_MODULE_22__["MatButtonModule"],
-                _angular_material_icon__WEBPACK_IMPORTED_MODULE_23__["MatIconModule"],
-                _angular_material_badge__WEBPACK_IMPORTED_MODULE_24__["MatBadgeModule"],
-                _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_28__["MatSnackBarModule"],
-                _angular_material_divider__WEBPACK_IMPORTED_MODULE_30__["MatDividerModule"],
-                _angular_material_list__WEBPACK_IMPORTED_MODULE_31__["MatListModule"],
-                _angular_material_core__WEBPACK_IMPORTED_MODULE_32__["MatRippleModule"],
-                _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_33__["MatTooltipModule"],
-                _angular_material_dialog__WEBPACK_IMPORTED_MODULE_34__["MatDialogModule"],
-                _angular_material_input__WEBPACK_IMPORTED_MODULE_35__["MatInputModule"],
-                _angular_material_form_field__WEBPACK_IMPORTED_MODULE_36__["MatFormFieldModule"],
-                _angular_material_tabs__WEBPACK_IMPORTED_MODULE_37__["MatTabsModule"],
-                _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_38__["MatProgressBarModule"]
+                _angular_material_button__WEBPACK_IMPORTED_MODULE_21__["MatButtonModule"],
+                _angular_material_icon__WEBPACK_IMPORTED_MODULE_22__["MatIconModule"],
+                _angular_material_badge__WEBPACK_IMPORTED_MODULE_23__["MatBadgeModule"],
+                _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_27__["MatSnackBarModule"],
+                _angular_material_divider__WEBPACK_IMPORTED_MODULE_29__["MatDividerModule"],
+                _angular_material_list__WEBPACK_IMPORTED_MODULE_30__["MatListModule"],
+                _angular_material_core__WEBPACK_IMPORTED_MODULE_31__["MatRippleModule"],
+                _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_32__["MatTooltipModule"],
+                _angular_material_dialog__WEBPACK_IMPORTED_MODULE_33__["MatDialogModule"],
+                _angular_material_input__WEBPACK_IMPORTED_MODULE_34__["MatInputModule"],
+                _angular_material_form_field__WEBPACK_IMPORTED_MODULE_35__["MatFormFieldModule"],
+                _angular_material_tabs__WEBPACK_IMPORTED_MODULE_36__["MatTabsModule"],
+                _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_37__["MatProgressBarModule"]
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]],
-            entryComponents: [_Pages_pack_content_page_cards_reveal_dialog_cards_reveal_dialog_component__WEBPACK_IMPORTED_MODULE_14__["CardsRevealDialogComponent"], _Pages_pack_content_page_random_card_reveal_dialog_random_card_reveal_dialog_component__WEBPACK_IMPORTED_MODULE_15__["RandomCardRevealDialogComponent"], _main_screen_user_related_user_related_dialog_user_related_dialog_component__WEBPACK_IMPORTED_MODULE_21__["UserRelatedDialogComponent"]]
+            entryComponents: [_Pages_pack_content_page_cards_reveal_dialog_cards_reveal_dialog_component__WEBPACK_IMPORTED_MODULE_14__["CardsRevealDialogComponent"], _Pages_pack_content_page_random_card_reveal_dialog_random_card_reveal_dialog_component__WEBPACK_IMPORTED_MODULE_15__["RandomCardRevealDialogComponent"], _main_screen_user_related_user_related_dialog_user_related_dialog_component__WEBPACK_IMPORTED_MODULE_20__["UserRelatedDialogComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -1443,7 +1563,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"spinner spinner-grow color-1\" role=\"status\">\r\n  <span class=\"sr-only\">Loading...</span>\r\n</div>\r\n<div class=\"spinner spinner-grow color-2\" role=\"status\">\r\n  <span class=\"sr-only\">Loading...</span>\r\n</div>\r\n<div class=\"spinner spinner-grow color-3\" role=\"status\">\r\n  <span class=\"sr-only\">Loading...</span>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"spinner spinner-grow color-1\" role=\"status\">\n  <span class=\"sr-only\">Loading...</span>\n</div>\n<div class=\"spinner spinner-grow color-2\" role=\"status\">\n  <span class=\"sr-only\">Loading...</span>\n</div>\n<div class=\"spinner spinner-grow color-3\" role=\"status\">\n  <span class=\"sr-only\">Loading...</span>\n</div>\n");
 
 /***/ }),
 
@@ -1922,7 +2042,97 @@ var awsmobile = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"content\">\r\n  <!-- <app-card [ngClass]=\"{'card': true, 'card-reveal': loadedCards == data.length}\" [ngStyle]=\"{'visibility': loadedCards == data.length ? 'visible' : 'hidden'}\" class=\"card\" -->\r\n  <app-card [ngClass]=\"{'card-pre-reveal': true, 'card-reveal': loadedCards == data.length}\" \r\n    *ngFor=\"let card of data\" [cardContent]=\"card\" [index]=\"card.index\" [flipped]=\"true\" (loaded)=\"loadedCards=loadedCards+1;\">\r\n  </app-card>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"content\">\n  <!-- <app-card [ngClass]=\"{'card': true, 'card-reveal': loadedCards == data.length}\" [ngStyle]=\"{'visibility': loadedCards == data.length ? 'visible' : 'hidden'}\" class=\"card\" -->\n  <app-card [ngClass]=\"{'card-pre-reveal': true, 'card-reveal': loadedCards == data.length}\" \n    *ngFor=\"let card of data\" [cardContent]=\"card\" [index]=\"card.index\" [flipped]=\"true\" (loaded)=\"loadedCards=loadedCards+1;\">\n  </app-card>\n</div>\n");
+
+/***/ }),
+
+/***/ "u+o5":
+/*!***********************************************!*\
+  !*** ./src/app/Services/user-auth.service.ts ***!
+  \***********************************************/
+/*! exports provided: UserAuthService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserAuthService", function() { return UserAuthService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/snack-bar */ "dNgK");
+/* harmony import */ var aws_amplify__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! aws-amplify */ "AL3R");
+
+
+
+
+var UserAuthService = /** @class */ (function () {
+    function UserAuthService(_snackBar) {
+        var _this = this;
+        this._snackBar = _snackBar;
+        this.loggedInEmmiter = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        aws_amplify__WEBPACK_IMPORTED_MODULE_3__["Auth"].currentAuthenticatedUser().then(function (userData) {
+            _this.loggedInAttributes = userData.attributes;
+            _this.loggedInEmmiter.emit(userData.attributes);
+            // console.log(userData)
+        })
+            .catch(function (err) { return console.log(err); });
+    }
+    /**
+     * Preform sign up process
+     * @param newUser - new user data (name, lname, username (email), password)
+     */
+    UserAuthService.prototype.signUp = function (newUser) {
+        return aws_amplify__WEBPACK_IMPORTED_MODULE_3__["Auth"].signIn(newUser);
+    };
+    /**
+     * Preform log in using User data
+     * @param user - all user data to log in
+     */
+    UserAuthService.prototype.logIn = function (user) {
+        return aws_amplify__WEBPACK_IMPORTED_MODULE_3__["Auth"].signIn(user);
+    };
+    /**
+     * After succesful log in, save cookies and let all components know we logged in
+     * @param userData - data returned from the BE for the user (tokens etc')
+     */
+    UserAuthService.prototype.loggedIn = function (userData) {
+        this.loggedInAttributes = userData.attributes;
+        this.loggedInEmmiter.emit(userData.attributes);
+    };
+    /**
+     * Check username (email) and send varification email with code
+     * @param user - username (email) to reset password for
+     */
+    UserAuthService.prototype.forgotPasswordVarifyEmail = function (user) {
+        return aws_amplify__WEBPACK_IMPORTED_MODULE_3__["Auth"].forgotPassword(user);
+    };
+    /**
+     * After receiving email with verification code, create a new password
+     * @param user - username (email)
+     * @param confirmationCode - code received via email
+     * @param newPassword
+     */
+    UserAuthService.prototype.forgotPasswordReset = function (user, confirmationCode, newPassword) {
+        return aws_amplify__WEBPACK_IMPORTED_MODULE_3__["Auth"].forgotPasswordSubmit(user, confirmationCode, newPassword);
+    };
+    UserAuthService.prototype.logOut = function () {
+        return aws_amplify__WEBPACK_IMPORTED_MODULE_3__["Auth"].signOut();
+    };
+    UserAuthService.ctorParameters = function () { return [
+        { type: _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"] }
+    ]; };
+    UserAuthService.propDecorators = {
+        loggedInEmmiter: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
+    };
+    UserAuthService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"]])
+    ], UserAuthService);
+    return UserAuthService;
+}());
+
+
 
 /***/ }),
 
@@ -2092,20 +2302,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"login\">\r\n  <form [formGroup]=\"loginForm\" (ngSubmit)=\"onLoginSubmit()\" *ngIf=\"login\">\r\n    <div class=\"d-flex flex-column\">\r\n      <mat-form-field>\r\n        <mat-label>אימייל</mat-label>\r\n        <input autocomplete=\"off\" formControlName=\"username\" matInput color=\"primary\">\r\n      </mat-form-field>\r\n      <mat-form-field>\r\n        <mat-label>סיסמא</mat-label>\r\n        <input autocomplete=\"off\" formControlName=\"password\" matInput\r\n          [type]=\"hidePW ? 'password' : 'text'\">\r\n        <button mat-icon-button matSuffix (click)=\"hidePW = !hidePW\">\r\n          <mat-icon style=\"font-family: 'Material Icons';\">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\r\n        </button>\r\n      </mat-form-field>\r\n      <button type=\"submit\" class=\"option-btn\" id=\"login-button\" [disabled]=\"!loginForm.valid\">התחבר</button>\r\n    </div>\r\n  </form>\r\n</div>\r\n\r\n<div *ngIf=\"!login\">\r\n  <form [formGroup]=\"forgotPasswordForm\" (ngSubmit)=\"onForgotPasswordSubmit()\">\r\n    <div class=\"d-flex flex-column\">\r\n      <mat-form-field>\r\n        <mat-label>אימייל</mat-label>\r\n        <input autocomplete=\"off\" formControlName=\"username\" matInput>\r\n      </mat-form-field>\r\n      <button type=\"submit\" class=\"option-btn\" id=\"login-button\" [disabled]=\"!forgotPasswordForm.valid\">שחזר סיסמא</button>\r\n    </div>\r\n  </form>\r\n</div>\r\n<mat-progress-bar [ngStyle]=\"{'visibility': showLoading ? 'visible' : 'hidden'}\" mode=\"query\"></mat-progress-bar>\r\n<!-- <br> -->\r\n<mat-divider></mat-divider>\r\n<br>\r\n<div id=\"formFooter\">\r\n  <a class=\"underlineHover\" style=\"cursor: pointer;\" *ngIf=\"login\" (click)=\"login = !login; loginForm.reset()\">שכחת סיסמא?</a>\r\n  <a class=\"underlineHover\" style=\"cursor: pointer;\" *ngIf=\"!login\" (click)=\"login = !login; forgotPasswordForm.reset()\">התחברות</a>\r\n</div>\r\n");
-
-/***/ }),
-
-/***/ "ywwK":
-/*!************************************************************************************************************!*\
-  !*** ./src/app/main-screen/user-related/user-related-dialog/forgot-password/forgot-password.component.css ***!
-  \************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21haW4tc2NyZWVuL3VzZXItcmVsYXRlZC91c2VyLXJlbGF0ZWQtZGlhbG9nL2ZvcmdvdC1wYXNzd29yZC9mb3Jnb3QtcGFzc3dvcmQuY29tcG9uZW50LmNzcyJ9 */");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <div id=\"logInForm\" *ngIf=\"login\"> -->\n<div id=\"logInForm\" [hidden]=\"!login\">\n  <form [formGroup]=\"loginForm\" (ngSubmit)=\"onLoginSubmit()\" *ngIf=\"login\">\n    <div class=\"d-flex flex-column\">\n      <mat-form-field>\n        <mat-label>אימייל</mat-label>\n        <input autocomplete=\"off\" formControlName=\"username\" matInput color=\"primary\">\n        <mat-error *ngIf=\"loginForm.controls.username.errors?.userNotConfirmed\">משתמש לא אומת. יש להכנס למייל ולאמת\n          משתמש על מנת להתחבר</mat-error>\n        <mat-error *ngIf=\"loginForm.controls.username.errors?.userNotFound\">משתמש לא קיים</mat-error>\n      </mat-form-field>\n      <mat-form-field>\n        <mat-label>סיסמא</mat-label>\n        <input autocomplete=\"off\" formControlName=\"password\" matInput [type]=\"hidePW ? 'password' : 'text'\">\n        <mat-error *ngIf=\"loginForm.controls.password.errors?.usernamePwWrong\">שם משתמש או סיסמא לא נכונים</mat-error>\n        <button type=\"button\" mat-icon-button matSuffix (click)=\"hidePW = !hidePW\">\n          <mat-icon style=\"font-family: 'Material Icons';\">{{hidePW ? 'visibility_off' : 'visibility'}}</mat-icon>\n        </button>\n      </mat-form-field>\n      <button type=\"submit\" class=\"option-btn\" id=\"login-button\" [disabled]=\"!loginForm.valid\">התחבר</button>\n    </div>\n  </form>\n</div>\n\n<!-- <div id=\"forgotPasswordForm\" *ngIf=\"!login\"> -->\n<div id=\"forgotPasswordForm\" [hidden]=\"login\">\n  <form [formGroup]=\"forgotPasswordForm\" (ngSubmit)=\"onForgotPasswordSubmit()\">\n    <div class=\"d-flex flex-column\">\n      <mat-form-field>\n        <mat-label>אימייל</mat-label>\n        <input autocomplete=\"off\" formControlName=\"username\" matInput>\n        <mat-error *ngIf=\"forgotPasswordForm.controls.username.errors?.userNotFound\">משתמש לא קיים</mat-error>\n        <mat-error *ngIf=\"forgotPasswordForm.controls.username.errors?.limitExceeded\">יותר מדי נסיונות איפוס. יש להמתין\n          ולנסות שוב בהמשך</mat-error>\n      </mat-form-field>\n      <mat-form-field *ngIf=\"newPasswordPhase\">\n        <mat-label>קוד אימות</mat-label>\n        <input autocomplete=\"off\" formControlName=\"confirmationCode\" matInput>\n        <mat-error *ngIf=\"forgotPasswordForm.controls.confirmationCode.errors?.codeMismatch\">קוד אימות שגוי</mat-error>\n      </mat-form-field>\n      <mat-form-field *ngIf=\"newPasswordPhase\">\n        <mat-label>סיסמא</mat-label>\n        <input autocomplete=\"off\" formControlName=\"newPassword\" matInput [type]=\"hidePW ? 'password' : 'text'\">\n        <mat-hint>8 ספרות לפחות, חייב להכיל ספרה, אות קטנה ואות גדולה (באנגלית)</mat-hint>\n        <mat-error *ngIf=\"registerForm.controls.password.errors?.badPassword\">סיסמא לא חוקית, נסו שנית</mat-error>\n        <button type=\"button\" mat-icon-button matSuffix (click)=\"hidePW = !hidePW\">\n          <mat-icon style=\"font-family: 'Material Icons';\">{{hidePW ? 'visibility_off' : 'visibility'}}</mat-icon>\n        </button>\n      </mat-form-field>\n      <button type=\"submit\" class=\"option-btn\" id=\"login-button\" [disabled]=\"!forgotPasswordForm.valid\">שחזר\n        סיסמא</button>\n    </div>\n  </form>\n</div>\n<mat-progress-bar [ngStyle]=\"{'visibility': showLoading ? 'visible' : 'hidden'}\" mode=\"query\"></mat-progress-bar>\n<!-- <br> -->\n<mat-divider></mat-divider>\n<br>\n<div id=\"formFooter\">\n  <a class=\"underlineHover\" style=\"cursor: pointer;\" *ngIf=\"login\" (click)=\"login = !login; loginForm.reset()\">שכחת\n    סיסמא?</a>\n  <a class=\"underlineHover\" style=\"cursor: pointer;\" *ngIf=\"!login\"\n    (click)=\"login = !login; forgotPasswordForm.reset(); hidePW=true;\">התחברות</a>\n</div>\n");
 
 /***/ }),
 
@@ -2169,6 +2366,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/dialog */ "0IaG");
 /* harmony import */ var _user_related_user_related_dialog_user_related_dialog_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../user-related/user-related-dialog/user-related-dialog.component */ "/iCS");
+/* harmony import */ var src_app_Services_user_auth_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/Services/user-auth.service */ "u+o5");
+
 
 
 
@@ -2176,23 +2375,37 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var NavComponent = /** @class */ (function () {
-    function NavComponent(dialog) {
+    function NavComponent(dialog, userAuthService) {
         this.dialog = dialog;
+        this.userAuthService = userAuthService;
+        this.loggedIn = false;
     }
     NavComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.userAuthService.loggedInEmmiter.subscribe(function (userAttributes) {
+            _this.loggedInName = userAttributes.name;
+            _this.loggedIn = true;
+        });
     };
     NavComponent.prototype.loginRegister = function () {
         var dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialogConfig"]();
         dialogConfig.disableClose = false;
         dialogConfig.autoFocus = true;
         dialogConfig.maxHeight = '85vh';
-        var dialogRef = this.dialog.open(_user_related_user_related_dialog_user_related_dialog_component__WEBPACK_IMPORTED_MODULE_5__["UserRelatedDialogComponent"], dialogConfig);
-        var dialogSub = dialogRef.afterClosed().subscribe(function () {
-            dialogSub.unsubscribe();
-        });
+        this.dialog.open(_user_related_user_related_dialog_user_related_dialog_component__WEBPACK_IMPORTED_MODULE_5__["UserRelatedDialogComponent"], dialogConfig);
+    };
+    NavComponent.prototype.logout = function () {
+        var _this = this;
+        this.userAuthService.logOut()
+            .then(function (data) {
+            _this.loggedInName = undefined;
+            _this.loggedIn = false;
+        })
+            .catch(function (err) { return console.log(err); });
     };
     NavComponent.ctorParameters = function () { return [
-        { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"] }
+        { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"] },
+        { type: src_app_Services_user_auth_service__WEBPACK_IMPORTED_MODULE_6__["UserAuthService"] }
     ]; };
     NavComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
@@ -2200,7 +2413,7 @@ var NavComponent = /** @class */ (function () {
             template: _raw_loader_nav_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
             styles: [_nav_component_css__WEBPACK_IMPORTED_MODULE_2__["default"]]
         }),
-        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"]])
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"], src_app_Services_user_auth_service__WEBPACK_IMPORTED_MODULE_6__["UserAuthService"]])
     ], NavComponent);
     return NavComponent;
 }());

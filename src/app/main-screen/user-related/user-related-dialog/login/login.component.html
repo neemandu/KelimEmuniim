@@ -1,4 +1,5 @@
-<div *ngIf="login">
+<!-- <div id="logInForm" *ngIf="login"> -->
+<div id="logInForm" [hidden]="!login">
   <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()" *ngIf="login">
     <div class="d-flex flex-column">
       <mat-form-field>
@@ -21,7 +22,8 @@
   </form>
 </div>
 
-<div *ngIf="!login">
+<!-- <div id="forgotPasswordForm" *ngIf="!login"> -->
+<div id="forgotPasswordForm" [hidden]="login">
   <form [formGroup]="forgotPasswordForm" (ngSubmit)="onForgotPasswordSubmit()">
     <div class="d-flex flex-column">
       <mat-form-field>

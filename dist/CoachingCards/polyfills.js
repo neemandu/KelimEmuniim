@@ -4095,8 +4095,8 @@ module.exports = getBuiltIn('document', 'documentElement');
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\dneeman\source\repos\KelimEmuniim\src\polyfills.ts */"hN/g");
-module.exports = __webpack_require__(/*! C:\Users\dneeman\source\repos\KelimEmuniim\node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\jit-polyfills.js */"LEsg");
+__webpack_require__(/*! C:\Personal\Projects\KelimEmuniim\src\polyfills.ts */"hN/g");
+module.exports = __webpack_require__(/*! C:\Personal\Projects\KelimEmuniim\node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\jit-polyfills.js */"LEsg");
 
 
 /***/ }),
