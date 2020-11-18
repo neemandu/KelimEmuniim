@@ -19,7 +19,6 @@ import { OverlaySpinnerComponent } from './main-screen/overlay-spinner/overlay-s
 import { LoginComponent } from './main-screen/user-related/user-related-dialog/login/login.component';
 import { RegisterComponent } from './main-screen/user-related/user-related-dialog/register/register.component';
 import { UserRelatedDialogComponent } from './main-screen/user-related/user-related-dialog/user-related-dialog.component';
-import { CookieService } from "angular2-cookie/services/cookies.service";
 
 //Material
 import { MatButtonModule } from '@angular/material/button';
@@ -87,7 +86,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatTabsModule,
     MatProgressBarModule
   ],
-  providers: [CookieService],
+  providers: [],
   bootstrap: [AppComponent],
   entryComponents: [CardsRevealDialogComponent, RandomCardRevealDialogComponent, UserRelatedDialogComponent]
 
