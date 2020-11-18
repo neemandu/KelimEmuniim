@@ -50,6 +50,14 @@ body {
   min-width: 0 !important;
 }
 
+.rtl-error-snackbar {
+  direction: rtl !important;
+  color: black;
+  background-color: #feefd7;
+  border: 4px double #ff5e00;
+  min-width: 0 !important;
+}
+
 .shuffle-item {
   transition: transform 1s;
   /* transition: ease-in 2s; */

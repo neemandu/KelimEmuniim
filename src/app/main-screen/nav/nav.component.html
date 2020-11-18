@@ -3,11 +3,16 @@
 </div>
 
 <nav class="nav navbar-light align-items-center justify-content-center sticky-top" style="background-color: white;">
+  <!-- <div id="log-in-buttons">
+    <button *ngIf="loggedIn" type="button" class="btn btn-light login-button" (click)=logout()>התנתק</button>
+    <button *ngIf="!loggedIn" type="button" class="btn btn-light login-button" (click)=loginRegister()>התחברות\הרשמה</button>
+  </div>-->
   <div id="nav-buttons">
     <!-- <button type="button" class="btn btn-light">
       <mat-icon matBadge="15" clsas="btn-icon" routerLink="/shopping-cart-page">shopping_cart</mat-icon>
     </button> -->
-    <button type="button" class="btn btn-light" (click)=loginRegister()>התחברות\הרשמה</button>
+    <button *ngIf="loggedIn" type="button" class="btn btn-light" (click)=logout()>התנתק</button>
+    <button *ngIf="!loggedIn" type="button" class="btn btn-light" (click)=loginRegister()>התחברות\הרשמה</button>
     <button type="button" class="btn btn-light" routerLink="/home-page">מסך הבית</button>
     <!-- <button type="button" class="btn btn-light" routerLink="/about-page">עלינו</button> -->
     <button type="button" class="btn btn-light">עלינו</button>

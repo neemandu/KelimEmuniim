@@ -1,10 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-// import Amplify from 'aws-amplify';
-// import awsconfig from './aws-exports'; 
-// Amplify.configure(awsconfig);
-
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,10 +16,10 @@ import { CardsRevealDialogComponent } from './Pages/pack-content-page/cards-reve
 import { RandomCardRevealDialogComponent } from './Pages/pack-content-page/random-card-reveal-dialog/random-card-reveal-dialog.component';
 import { TransitionGroupComponent, TransitionGroupItemDirective } from './Pages/pack-content-page/transition-group';
 import { OverlaySpinnerComponent } from './main-screen/overlay-spinner/overlay-spinner.component';
-import { ForgotPasswordComponent } from './main-screen/user-related/user-related-dialog/forgot-password/forgot-password.component';
 import { LoginComponent } from './main-screen/user-related/user-related-dialog/login/login.component';
 import { RegisterComponent } from './main-screen/user-related/user-related-dialog/register/register.component';
 import { UserRelatedDialogComponent } from './main-screen/user-related/user-related-dialog/user-related-dialog.component';
+import { CookieService } from "angular2-cookie/services/cookies.service";
 
 //Material
 import { MatButtonModule } from '@angular/material/button';
@@ -42,7 +38,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTabsModule } from '@angular/material/tabs';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -63,10 +59,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     OverlaySpinnerComponent,
     RandomCardRevealDialogComponent,
     TransitionGroupComponent,
-    TransitionGroupItemDirective, 
-    LoginComponent, 
-    RegisterComponent, 
-    ForgotPasswordComponent,
+    TransitionGroupItemDirective,
+    LoginComponent,
+    RegisterComponent,
     UserRelatedDialogComponent
   ],
   imports: [
@@ -92,7 +87,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatTabsModule,
     MatProgressBarModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent],
   entryComponents: [CardsRevealDialogComponent, RandomCardRevealDialogComponent, UserRelatedDialogComponent]
 
